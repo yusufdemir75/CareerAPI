@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "CareerAPI.API.Controllers.AdvertController",
+    "Method": "GetAdvert",
+    "RelativePath": "api/Advert",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

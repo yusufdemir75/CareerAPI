@@ -1,0 +1,12 @@
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\bin\Debug\net6.0\CareerAPI.Domain.deps.json
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\bin\Debug\net6.0\CareerAPI.Domain.dll
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\bin\Debug\net6.0\CareerAPI.Domain.pdb
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\CareerAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\CareerAPI.Domain.AssemblyInfoInputs.cache
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\CareerAPI.Domain.AssemblyInfo.cs
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\CareerAPI.Domain.csproj.CoreCompileInputs.cache
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\CareerAPI.Domain.dll
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\refint\CareerAPI.Domain.dll
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\CareerAPI.Domain.pdb
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\ref\CareerAPI.Domain.dll
+C:\Users\dmrys\OneDrive\Masaüstü\CareerAPI\CareerAPI.Core\CareerAPI.Domain\obj\Debug\net6.0\CareerAPI.Domain.csproj.AssemblyReference.cache

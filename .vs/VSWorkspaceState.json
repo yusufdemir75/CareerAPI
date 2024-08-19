@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CareerAPI",
+    "\\CareerAPI.Core",
+    "\\CareerAPI.Core\\CareerAPI.Application",
+    "\\CareerAPI.Infrastructure",
+    "\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure",
+    "\\CareerAPI.Infrastructure\\CareerAPI.Persistence"
+  ],
+  "SelectedNode": "\\CareerAPI\\CareerAPI.sln",
+  "PreviewInSolutionExplorer": false
+}
