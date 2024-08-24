@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CareerAPI.Application.Abstractions
+namespace CareerAPI.Application.Repositories
 {
-    public interface IAdvertService
+    public interface IUserReadRepository : IReadRepository<User>
     {
-        List<Advert> GetAdvert();
+
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj": {}
+    "C:\\Project\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj": {
+    "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj",
+        "projectUniqueName": "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj",
         "projectName": "CareerAPI.Application",
-        "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj",
+        "projectPath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj",
         "packagesPath": "C:\\Users\\dmrys\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\obj\\",
+        "outputPath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dmrys\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj": {
-                "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj"
+              "C:\\Project\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj": {
+                "projectPath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj"
               }
             }
           }
@@ -50,6 +50,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.33, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -79,14 +83,14 @@
         }
       }
     },
-    "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj": {
+    "C:\\Project\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj",
+        "projectUniqueName": "C:\\Project\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj",
         "projectName": "CareerAPI.Domain",
-        "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj",
+        "projectPath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Domain\\CareerAPI.Domain.csproj",
         "packagesPath": "C:\\Users\\dmrys\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Domain\\obj\\",
+        "outputPath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dmrys\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -150,14 +154,14 @@
         }
       }
     },
-    "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj": {
+    "C:\\Project\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Project\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj",
         "projectName": "CareerAPI.Infrastructure",
-        "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj",
+        "projectPath": "C:\\Project\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\dmrys\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\obj\\",
+        "outputPath": "C:\\Project\\CareerAPI.Infrastructure\\CareerAPI.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dmrys\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -175,8 +179,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj"
+              "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj": {
+                "projectPath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GfiYxzluI9U=",
+  "dgSpecHash": "MWm/wvhe8Hw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Presentation\\CareerAPI.API\\CareerAPI.API.csproj",
+  "projectFilePath": "C:\\Project\\CareerAPI.Presentation\\CareerAPI.API\\CareerAPI.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dmrys\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dmrys\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.33\\microsoft.entityframeworkcore.6.0.33.nupkg.sha512",

@@ -289,6 +289,7 @@
       "CareerAPI.Application/1.0.0": {
         "dependencies": {
           "CareerAPI.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.33",
           "Microsoft.Extensions.Configuration": "6.0.1",
           "Microsoft.Extensions.Configuration.Json": "6.0.0"
         },

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerAPI.Persistence.Migrations
 {
     [DbContext(typeof(CareerAPIDbContext))]
-    [Migration("20240819110532_mig_1")]
-    partial class mig_1
+    [Migration("20240821113003_mig-1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

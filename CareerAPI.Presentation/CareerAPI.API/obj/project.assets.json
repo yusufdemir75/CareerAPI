@@ -598,6 +598,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "CareerAPI.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.33",
           "Microsoft.Extensions.Configuration": "6.0.1",
           "Microsoft.Extensions.Configuration.Json": "6.0.0"
         },
@@ -1654,11 +1655,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Presentation\\CareerAPI.API\\CareerAPI.API.csproj",
+      "projectUniqueName": "C:\\Project\\CareerAPI.Presentation\\CareerAPI.API\\CareerAPI.API.csproj",
       "projectName": "CareerAPI.API",
-      "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Presentation\\CareerAPI.API\\CareerAPI.API.csproj",
+      "projectPath": "C:\\Project\\CareerAPI.Presentation\\CareerAPI.API\\CareerAPI.API.csproj",
       "packagesPath": "C:\\Users\\dmrys\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Presentation\\CareerAPI.API\\obj\\",
+      "outputPath": "C:\\Project\\CareerAPI.Presentation\\CareerAPI.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dmrys\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1676,11 +1677,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj": {
-              "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj"
+            "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj": {
+              "projectPath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj"
             },
-            "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Infrastructure\\CareerAPI.Persistence\\CareerAPI.Persistence.csproj": {
-              "projectPath": "C:\\Users\\dmrys\\CareerAPI\\CareerAPI.Infrastructure\\CareerAPI.Persistence\\CareerAPI.Persistence.csproj"
+            "C:\\Project\\CareerAPI.Infrastructure\\CareerAPI.Persistence\\CareerAPI.Persistence.csproj": {
+              "projectPath": "C:\\Project\\CareerAPI.Infrastructure\\CareerAPI.Persistence\\CareerAPI.Persistence.csproj"
             }
           }
         }
