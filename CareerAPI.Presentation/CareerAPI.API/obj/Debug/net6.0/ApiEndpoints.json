@@ -1,25 +1,9 @@
 [
   {
     "ContainingType": "CareerAPI.API.Controllers.CategoryController",
-    "Method": "Get",
-    "RelativePath": "api/Category",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CareerAPI.API.Controllers.CategoryController",
-    "Method": "Get",
+    "Method": "Delete",
     "RelativePath": "api/Category/{id}",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
