@@ -20,7 +20,8 @@ const routes: Routes = [
     ]},
     {path: "", component: HomeComponent},
     {path: "adverts", loadChildren:()=> import("./ui/components/adverts/adverts.module").then(module => module.AdvertsModule)},
-    {path: "users", loadChildren:()=> import("./ui/components/users/users.module").then(module => module.UsersModule)},
+    {path: "register", loadChildren:()=> import("./ui/components/register/register.module").then(module => module.RegisterModule)},
+    
 
 ];
 
