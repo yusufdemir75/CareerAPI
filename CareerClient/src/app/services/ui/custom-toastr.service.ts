@@ -12,12 +12,11 @@ export class CustomToastrService {
     title: string, 
     messageType: ToastrMessageType, 
     position: ToastrPosition, 
-    timeOut: number = 3000  
+    
   ) {
     this.toastr[messageType](message, title, {
       positionClass: position,
-      timeOut: timeOut,  
-      extendedTimeOut: 1000 
+      
     });
   }
 }

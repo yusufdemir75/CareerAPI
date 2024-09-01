@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using CareerAPI.Application.Repositories;
 using CareerAPI.Persistence.Repositories;
+using CareerAPI.Domain.Entities.Identity;
+using Microsoft.Extensions.Options;
 
 namespace CareerAPI.Persistence
 {
@@ -21,6 +23,15 @@ namespace CareerAPI.Persistence
             var connectionString = configuration.GetConnectionString("CareerAPIDb");
             services.AddDbContext<CareerAPIDbContext>(options =>
                 options.UseNpgsql(connectionString),ServiceLifetime.Singleton);
+            services.AddIdentity<AppUser,AppRole>(options =>
+            {
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                
+            }).AddEntityFrameworkStores<CareerAPIDbContext>();
 
             services.AddScoped<IAdvertReadRepository, AdvertReadRepository>();
             services.AddScoped<IAdvertWriteRepository, AdvertWriteRepository>();

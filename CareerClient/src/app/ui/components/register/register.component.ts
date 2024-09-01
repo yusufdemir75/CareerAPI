@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { group } from 'console';
 import { user } from '../../../entities/user';
+import { UserService } from '../../../services/models/user.service';
+import { Create_User } from '../../../contracts/users/create_user';
+import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../../services/ui/custom-toastr.service';
 
 @Component({
   selector: 'app-register',
@@ -13,17 +16,17 @@ export class RegisterComponent {
   /**
    *
    */
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private userService:UserService, private toastrService: CustomToastrService) {}
 
 
     frm:FormGroup;
     ngOnInit(): void{
       this.frm=this.formBuilder.group({
-        adSoyad:["",[
+        nameSurname:["",[
           Validators.required,
           Validators.maxLength(50), 
           Validators.minLength(3)]],
-        kullaniciAdi:["",[
+        username:["",[
           Validators.required,
           Validators.maxLength(50), 
           Validators.minLength(3)]],
@@ -32,17 +35,17 @@ export class RegisterComponent {
           Validators.maxLength(250), 
           Validators.minLength,
           Validators.email]],
-        sifre:["",[
+        password:["",[
           Validators.required,
         ]],
-        sifreTekrar:["",[
+        passwordConfirm:["",[
           Validators.required,
         ]]
       },{
         validators:(group: AbstractControl): ValidationErrors | null =>{
-            let sifre = group.get("sifre").value;
-            let sifreTekrar = group.get("sifreTekrar").value;
-            return sifre === sifreTekrar ? null : {notSame:true};
+            let password = group.get("password").value;
+            let passwordConfirm = group.get("passwordConfirm").value;
+            return password === passwordConfirm ? null : {notSame:true};
         }
       })
     }
@@ -52,12 +55,28 @@ export class RegisterComponent {
 
     submitted:boolean=false;
 
-    onSubmit(data:user){
+    async onSubmit(user:user){
       this.submitted=true;
-      debugger;
+      
       if(this.frm.invalid)
         return;
-        debugger;
+        
+    
+      const result : Create_User = await this.userService.create(user)
+      if (result.succeded) {
+        this.toastrService.message(result.message,"Kullanıcı Kaydı Başarılı",
+          ToastrMessageType.Success,
+          ToastrPosition.TopRight,
+        )
+      }
+      else{
+        this.toastrService.message(result.message,"Kullanıcı Kaydı Hatalı",
+          ToastrMessageType.Error,
+          ToastrPosition.TopRight,
+        )
+      }
+
+      
     }
     
   

@@ -55,7 +55,6 @@ C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\CareerAPI.Persi
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\CareerAPI.Application.pdb
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\CareerAPI.Persistence.pdb
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\CareerAPI.Domain.pdb
-C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\staticwebassets.development.json
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\staticwebassets\msbuild.CareerAPI.API.Microsoft.AspNetCore.StaticWebAssets.props
@@ -70,3 +69,13 @@ C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\refint\CareerAP
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.pdb
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.genruntimeconfig.cache
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\ref\CareerAPI.API.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\MediatR.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.MvcApplicationPartsAssemblyInfo.cs

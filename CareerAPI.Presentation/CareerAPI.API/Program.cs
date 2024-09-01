@@ -1,11 +1,13 @@
 
 using CareerAPI.Persistence;
 using CareerAPI.Application.Repositories;
+using CareerAPI.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddApplicationServices();
 // CORS politikasý ekleme
 builder.Services.AddCors(options =>
 {
