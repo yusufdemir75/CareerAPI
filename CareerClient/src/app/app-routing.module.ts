@@ -21,7 +21,7 @@ const routes: Routes = [
     {path: "", component: HomeComponent},
     {path: "adverts", loadChildren:()=> import("./ui/components/adverts/adverts.module").then(module => module.AdvertsModule)},
     {path: "register", loadChildren:()=> import("./ui/components/register/register.module").then(module => module.RegisterModule)},
-    
+    {path: "login", loadChildren:()=> import("./ui/components/login/login.module").then(module => module.LoginModule)},
 
 ];
 

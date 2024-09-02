@@ -62,5 +62,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.UsersController",
+    "Method": "login",
+    "RelativePath": "api/Users/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginUserCommandRequest",
+        "Type": "CareerAPI.Application.Features.Commands.AppUser.LoginUser.LoginUserCommandRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

@@ -1,0 +1,41 @@
+<div class="page-wrapper">
+    <div class="container">
+      <div class="form-wrapper">
+        <h2 class="form-title">Kayıt Formu</h2>
+        
+          <div class="form-group">
+            <label for="username">Kullanıcı Adı</label>
+            <input 
+                #txtUsernameOrEmail
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Kullanıcı adını & E-mail"
+            >
+            <small class="form-text text-muted invalid-feedback">Lütfen Kullanıcı Adını Boş Geçmeyiniz</small>
+            <small class="form-text text-muted invalid-feedback">Lütfen Kullanıcı Adı 3-50 Karakter Arasında Yazınız</small>
+          </div>
+  
+          <div class="form-group">
+            <label for="password">Şifre</label>
+            <input
+            #txtPassword
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Şifrenizi giriniz"
+            >
+            <small class="form-text text-muted invalid-feedback">Lütfen Şifreyi Boş Geçmeyiniz</small>
+          </div>
+  
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
+          </div>
+  
+          <button type="submit" class="btn btn-primary" (click)="login(txtUsernameOrEmail.value,txtPassword.value)">Giriş Yap</button>
+        
+      </div>
+    </div>
+  </div>
+       
