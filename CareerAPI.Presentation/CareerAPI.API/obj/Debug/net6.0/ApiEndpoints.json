@@ -65,8 +65,8 @@
   },
   {
     "ContainingType": "CareerAPI.API.Controllers.UsersController",
-    "Method": "login",
-    "RelativePath": "api/Users/login",
+    "Method": "Login",
+    "RelativePath": "api/Users/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -3,6 +3,7 @@ using CareerAPI.Application.Repositories;
 using CareerAPI.Domain.Entities;
 using CareerAPI.Persistence.Repositories;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace CareerAPI.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Admin")]
     public class CategoryController : ControllerBase
     {
 

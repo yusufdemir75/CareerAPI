@@ -79,3 +79,13 @@ C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\MediatR.dll
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\CareerAPI.Infrastructure.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\CareerAPI.Infrastructure.pdb
