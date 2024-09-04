@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,13 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModule,
     UiModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter:()=> localStorage.getItem("accessToken"),
+        allowedDomains:["localhost:7259"]
+      }
+    })
   ],
   providers: [
     {provide:"baseUrl", useValue:"https://localhost:7259/api" ,multi: true}

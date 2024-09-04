@@ -8,16 +8,18 @@ import { UsersModule } from './admin/components/users/users.module';
 import { HomeComponent } from './ui/components/home/home.component';
 import { AdvertsComponent } from './ui/components/adverts/adverts.component';
 import { UsersComponent } from './ui/components/users/users.component';
+import { authGuard } from './guards/common/auth.guard';
 
 
 const routes: Routes = [
     {path: "admin", component:LayoutComponent,children:[
-      {path: "adverts", loadChildren : ()=> import("./admin/components/adverts/adverts.module").then(module => AdvertsModule)},
-      {path: "application", loadChildren : ()=> import("./admin/components/application/application.module").then(module => ApplicationModule)},
-      {path: "users", loadChildren : ()=> import("./admin/components/users/users.module").then(module => UsersModule)},
-      {path: "", component : DashboardComponent}
+      {path: "adverts", loadChildren : ()=> import("./admin/components/adverts/adverts.module").then(module => AdvertsModule),canActivate:[authGuard]},
+      {path: "application", loadChildren : ()=> import("./admin/components/application/application.module").then(module => ApplicationModule) ,canActivate:[authGuard]},
+      {path: "users", loadChildren : ()=> import("./admin/components/users/users.module").then(module => UsersModule) ,canActivate:[authGuard]},
+      {path: "", component : DashboardComponent ,canActivate:[authGuard]}
       
-    ]},
+    ],canActivate:[authGuard]},
+    
     {path: "", component: HomeComponent},
     {path: "adverts", loadChildren:()=> import("./ui/components/adverts/adverts.module").then(module => module.AdvertsModule)},
     {path: "register", loadChildren:()=> import("./ui/components/register/register.module").then(module => module.RegisterModule)},

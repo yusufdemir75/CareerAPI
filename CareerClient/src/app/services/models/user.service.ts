@@ -24,16 +24,19 @@ export class UserService {
   }
 
 
- async login(UsernameOrEmail:string,Password:string):Promise<any>{
-   const observable:Observable<any | tokenResponse>=   this.httpClientService.post<any | tokenResponse>({
+ async login(UsernameOrEmail: string, Password: string, callBackFunction?: () => void):Promise<any>{
+  debugger;
+   const observable:Observable<any | tokenResponse> = this.httpClientService.post<any | tokenResponse>({
         controller:"Users",
         action:"login"
       },{ UsernameOrEmail,Password })
 
     const tokenResponse:tokenResponse = await firstValueFrom(observable) as tokenResponse;
+    callBackFunction();
+
     if (tokenResponse) {
       
-      localStorage.setItem("accesToken",tokenResponse.token.accessToken);
+      localStorage.setItem("accessToken",tokenResponse.token.accessToken);
 
       this.toastrService.message("Kullanıcı girişi başarıyla sağlanmıştır.","Giriş Başarılı",ToastrMessageType.Success,ToastrPosition.TopRight)
       
