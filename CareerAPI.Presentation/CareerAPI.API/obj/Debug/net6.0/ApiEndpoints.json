@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "CareerAPI.API.Controllers.AdvertController",
+    "Method": "Post",
+    "RelativePath": "api/Advert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "CareerAPI.Application.ViewModels.Adverts.VM_Create_Advert",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CareerAPI.API.Controllers.CategoryController",
     "Method": "Get",
     "RelativePath": "api/Category",

@@ -49,6 +49,7 @@ export class RegisterComponent {
         }
       })
     }
+    
     get component(){
       return this.frm.controls
     }

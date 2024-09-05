@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "BGJYWTs/Wx4=",
+  "dgSpecHash": "l/HGIqK+1rM=",
   "success": true,
   "projectFilePath": "C:\\Project\\CareerAPI.Core\\CareerAPI.Application\\CareerAPI.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\dmrys\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\dmrys\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\dmrys\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.2\\fluentvalidation.dependencyinjectionextensions.11.9.2.nupkg.sha512",
     "C:\\Users\\dmrys\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\dmrys\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\dmrys\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",

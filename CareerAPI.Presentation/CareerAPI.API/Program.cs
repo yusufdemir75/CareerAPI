@@ -6,6 +6,10 @@ using CareerAPI.Application;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using FluentValidation.AspNetCore;
+using CareerAPI.Application.Validators.Adverts;
+using FluentValidation;
+using CareerAPI.Infrastructure.Filters;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,7 +32,15 @@ builder.Services.AddCors(options =>
 
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>()).ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter= true);
+
+builder.Services.AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters();
+
+// FluentValidation konfigürasyonu
+builder.Services.AddValidatorsFromAssemblyContaining<CreateAdvertValidator>();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

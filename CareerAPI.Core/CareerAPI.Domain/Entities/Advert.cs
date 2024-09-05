@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace CareerAPI.Domain.Entities
@@ -11,17 +13,17 @@ namespace CareerAPI.Domain.Entities
     public class Advert:BaseEntity
     {
         //Title
-        public string Title { get; set; }
+        public string title { get; set; }
 
-        public string Description { get; set; }
+        public string companyName { get; set; }
 
-        public string Address { get; set; }
+        public string position { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public string address { get; set; }
 
-        public bool IsActive { get; set; }
+        public string typeOfWork { get; set; }
 
-        public User Users { get; set; }
+        public JsonDocument requirements { get; set; }
 
         public ICollection<Applications> Applications { get; set; }
 

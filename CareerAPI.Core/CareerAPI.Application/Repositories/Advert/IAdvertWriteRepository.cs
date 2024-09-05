@@ -9,5 +9,6 @@ namespace CareerAPI.Application.Repositories
 {
     public interface IAdvertWriteRepository : IWriteRepository<Advert>
     {
+        
     }
 }

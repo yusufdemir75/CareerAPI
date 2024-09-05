@@ -45,6 +45,7 @@ namespace CareerAPI.Persistence
             services.AddScoped<IUserWriteRepository, UserWriteRepository>();
 
 
+
         }
        
     }

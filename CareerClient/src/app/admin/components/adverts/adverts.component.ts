@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpClientService } from '../../../services/common/http-client.service';
+import { AdvertsService } from '../../../services/models/adverts.service';
+import { advert } from '../../../contracts/adverts/advert';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { QuillEditorComponent } from 'ngx-quill';
+import { Delta } from 'quill/core';
+import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../../services/ui/custom-toastr.service';
 
 @Component({
   selector: 'app-adverts',
@@ -7,38 +12,35 @@ import { HttpClientService } from '../../../services/common/http-client.service'
   styleUrl: './adverts.component.scss'
 })
 export class AdvertsComponent {
-  /**
-   *
-   */
-  constructor(private httpClienService:HttpClientService) {
+  
+  
+  constructor(private advertsService:AdvertsService, private toastrService:CustomToastrService) {
+  }
+
+  
+  
+
+
+  create(event:Event,title:HTMLInputElement,companyName:HTMLInputElement,address:HTMLInputElement, position:HTMLInputElement, typeOfWork:HTMLSelectElement,requirement:QuillEditorComponent){
+    event.preventDefault();
+
+    const create_advert: advert = new advert();
+    create_advert.Title= title.value;
+    create_advert.address=address.value;
+    create_advert.companyName = companyName.value;
+    create_advert.position=position.value;
+    create_advert.typeOfWork=typeOfWork.value;
+    const delta: Delta = requirement.quillEditor.getContents();
+    create_advert.requirements = JSON.stringify(delta);
+
+    this.advertsService.create_advert(create_advert,()=>{
+      this.toastrService.message("Kayıt Başarılı","İlan Kaydı",ToastrMessageType.Success,ToastrPosition.TopRight)
+    },errorMesage=>{
+      this.toastrService.message(errorMesage,"Kayıt Yapılamadı",ToastrMessageType.Error,ToastrPosition.TopRight)
+    })
     
+
     
   }
-  ngOnInit(): void{
-    //Örnek Veri Getirme
-    /*
-    this.httpClienService.get({
-      controller: "Category",
-    }).subscribe(data => console.log(data));
-    */
-
-
-    //Örnek Veri Ekleme
-    /*
-    this.httpClienService.post({
-        controller:"Category"
-    },{
-      name:"kalem",
-      stock:100,
-      price:100
-    }).subscribe();
-    */
-
-   //Örnek Veri Silme
-   /*
-   this.httpClienService.delete({
-    controller:"Category"
-   },"4e796cd6-e868-4002-9182-d0dc5f102c97").subscribe();
-    */
-  }
+  
 }

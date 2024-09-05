@@ -34,6 +34,12 @@ C:\Users\dmrys\OneDrive\Masaüstü\CareerApi\CareerAPI.Infrastructure\CareerAPI.
 C:\Users\dmrys\OneDrive\Masaüstü\CareerApi\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\refint\CareerAPI.Infrastructure.dll
 C:\Users\dmrys\OneDrive\Masaüstü\CareerApi\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.pdb
 C:\Users\dmrys\OneDrive\Masaüstü\CareerApi\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\ref\CareerAPI.Infrastructure.dll
+C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.csproj.AssemblyReference.cache
+C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.AssemblyInfoInputs.cache
+C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.AssemblyInfo.cs
+C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.sourcelink.json
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\bin\Debug\net6.0\CareerAPI.Infrastructure.deps.json
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\bin\Debug\net6.0\CareerAPI.Infrastructure.dll
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\bin\Debug\net6.0\CareerAPI.Infrastructure.pdb
@@ -41,12 +47,6 @@ C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\bin\Debug\net6.0\Ca
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\bin\Debug\net6.0\CareerAPI.Domain.dll
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\bin\Debug\net6.0\CareerAPI.Application.pdb
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\bin\Debug\net6.0\CareerAPI.Domain.pdb
-C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.csproj.AssemblyReference.cache
-C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.AssemblyInfoInputs.cache
-C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.AssemblyInfo.cs
-C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.sourcelink.json
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAP.EB45839E.Up2Date
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\CareerAPI.Infrastructure.dll
 C:\Project\CareerAPI.Infrastructure\CareerAPI.Infrastructure\obj\Debug\net6.0\refint\CareerAPI.Infrastructure.dll
