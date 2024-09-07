@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "CareerAPI.API.Controllers.AdminController",
+    "Method": "CreateAdmin",
+    "RelativePath": "api/Admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createAdminCommandRequest",
+        "Type": "CareerAPI.Application.Features.Commands.AppUser.CreateAdmin.CreateAdminCommandRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.AdminController",
+    "Method": "Login",
+    "RelativePath": "api/Admin/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginAdminCommandRequest",
+        "Type": "CareerAPI.Application.Features.Commands.AppUser.LoginAdmin.LoginAdminCommandRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CareerAPI.API.Controllers.AdvertController",
     "Method": "Post",
     "RelativePath": "api/Advert",
@@ -13,6 +45,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.AdvertController",
+    "Method": "Get",
+    "RelativePath": "api/Advert",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -93,6 +135,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.UsersController",
+    "Method": "GetProfile",
+    "RelativePath": "api/Users/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

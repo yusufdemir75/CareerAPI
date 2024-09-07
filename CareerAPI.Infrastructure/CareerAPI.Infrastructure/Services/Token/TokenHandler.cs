@@ -4,45 +4,58 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
+using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CareerAPI.Infrastructure.Services.Token
 {
     public class TokenHandler : ITokenHandler
     {
-       readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         public TokenHandler(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        Application.DTOs.Token ITokenHandler.CreateAccessToken(int minute)
+        public Application.DTOs.Token CreateAccessToken(int minute, string tokenType)
         {
-            Application.DTOs.Token token = new();
+            var securityKey = _configuration[$"Token:{tokenType}SecurityKey"];
+            var issuer = _configuration[$"Token:{tokenType}Issuer"];
+            var audience = _configuration[$"Token:{tokenType}Audience"];
 
-            //SecurityKey'in simetriğini alıyoruz
-            SymmetricSecurityKey securityKey = new(Encoding.UTF8.GetBytes(_configuration["Token:SecurityKey"]));
-            //Şifrelenmiş kimliği oluşturuyoruz
-            SigningCredentials signingCredentials = new(securityKey,SecurityAlgorithms.HmacSha256);
+            if (string.IsNullOrEmpty(securityKey) || string.IsNullOrEmpty(issuer) || string.IsNullOrEmpty(audience))
+            {
+                throw new InvalidOperationException($"Token configuration for '{tokenType}' is not properly set.");
+            }
 
-            //Oluşturulacak token ayarlarını veriyoruz
-            token.Expiration = DateTime.UtcNow.AddMinutes(minute);
-            JwtSecurityToken securityToken = new(
-                audience: _configuration["Token:Audience"],
-                issuer: _configuration["Token:Issuer"],
-                expires: token.Expiration,
-                notBefore: DateTime.UtcNow,
-                signingCredentials:signingCredentials
-                );
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            //Token oluşturucu sınıfından bir örnek alıyoruz
-            JwtSecurityTokenHandler tokenHandler = new();
-            token.accessToken = tokenHandler.WriteToken(securityToken);
-            return token;
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, "my_subject"),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                // Diğer claim'ler
+            };
 
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.UtcNow.AddMinutes(minute),
+                Issuer = issuer,
+                Audience = audience,
+                SigningCredentials = creds
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+
+            return new Application.DTOs.Token
+            {
+                accessToken = tokenHandler.WriteToken(securityToken),
+                Expiration = tokenDescriptor.Expires.Value
+            };
         }
     }
 }

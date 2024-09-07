@@ -1,0 +1,36 @@
+.custom-card {
+  border: 2px solid #007bff; /* Border color */
+  border-radius: 15px; /* Rounded corners */
+  background-color: #f8f9fa; /* Background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: transform 0.2s; /* Smooth transition */
+}
+
+.custom-card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff; /* Title color */
+}
+
+.card-subtitle {
+  color: #6c757d;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+.quill-container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  min-height: 100px; /* Minimum height ayarlanabilir */
+}

@@ -14,6 +14,8 @@ namespace CareerAPI.Application.Features.Commands.AppUser.CreateUser
 
         public string password { get; set; }
 
+        public string Role { get; set; }
+
         public string email { get; set; }
 
         public string passwordConfirm { get; set; }

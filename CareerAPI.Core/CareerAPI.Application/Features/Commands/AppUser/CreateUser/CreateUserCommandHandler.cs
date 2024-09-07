@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CareerAPI.Application.Features.Commands.AppUser.CreateUser
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse> 
     {
 
         readonly UserManager<Domain.Entities.Identity.AppUser> _userManager;
@@ -24,10 +24,11 @@ namespace CareerAPI.Application.Features.Commands.AppUser.CreateUser
         {
            IdentityResult result = await _userManager.CreateAsync(new()
             {
-               Id =Guid.NewGuid().ToString(),
+                Id =Guid.NewGuid().ToString(),
                 UserName = request.username,
                 Email = request.email,
                 nameSurname = request.nameSurname,
+                Role = request.Role,  
 
 
             }, request.password);

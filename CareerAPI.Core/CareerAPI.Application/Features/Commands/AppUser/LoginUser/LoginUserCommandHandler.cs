@@ -36,7 +36,7 @@ namespace CareerAPI.Application.Features.Commands.AppUser.LoginUser
             SignInResult result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
             if (result.Succeeded)//authentication başarılı!
             {
-                Token token = _tokenHandler.CreateAccessToken(5);
+                Token token = _tokenHandler.CreateAccessToken(5, "Admin");
                 return new LoginUserSuccessCommandResponse()
                 {
                     token = token,

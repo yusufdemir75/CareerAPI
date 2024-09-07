@@ -6,8 +6,6 @@ import { AdvertsModule } from './admin/components/adverts/adverts.module';
 import { ApplicationModule } from './admin/components/application/application.module';
 import { UsersModule } from './admin/components/users/users.module';
 import { HomeComponent } from './ui/components/home/home.component';
-import { AdvertsComponent } from './ui/components/adverts/adverts.component';
-import { UsersComponent } from './ui/components/users/users.component';
 import { authGuard } from './guards/common/auth.guard';
 
 

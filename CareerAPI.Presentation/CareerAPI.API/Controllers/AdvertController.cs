@@ -15,17 +15,17 @@ namespace CareerAPI.API.Controllers
     public class AdvertController : ControllerBase
     {
         private readonly IAdvertWriteRepository _advertWriteRepository;
+        private readonly IAdvertReadRepository _advertReadRepository;
 
-        public AdvertController(IAdvertWriteRepository advertWriteRepository)
+        public AdvertController(IAdvertWriteRepository advertWriteRepository, IAdvertReadRepository advertReadRepository)
         {
             _advertWriteRepository = advertWriteRepository;
+            _advertReadRepository = advertReadRepository;
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(VM_Create_Advert model)
         {
-
-            
             await _advertWriteRepository.AddAsync(new()
             {
                 companyName = model.companyName,
@@ -37,6 +37,20 @@ namespace CareerAPI.API.Controllers
             });
             await _advertWriteRepository.SaveAsync();
             return StatusCode((int)HttpStatusCode.Created);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            return Ok(_advertReadRepository.GetAll(false).Select(a => new { 
+                a.Id,
+                a.companyName,
+                a.title,
+                a.address,
+                a.position,
+                a.typeOfWork,
+                a.requirements,
+            }));
         }
     }
 

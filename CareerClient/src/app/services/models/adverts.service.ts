@@ -3,6 +3,7 @@ import { HttpClientService } from '../common/http-client.service';
 import { advert } from '../../contracts/adverts/advert';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../ui/custom-toastr.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,13 @@ export class AdvertsService {
 
   constructor(private httpClientService:HttpClientService,private toastrSevice:CustomToastrService) { }
   
+  getAdverts(): Observable<advert[]> {
+    return this.httpClientService.get<advert[]>({
+      controller: 'advert'
+    });
+  }
+
+
   create_advert(advert: advert, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void) {
     this.httpClientService.post({
       controller: "advert"

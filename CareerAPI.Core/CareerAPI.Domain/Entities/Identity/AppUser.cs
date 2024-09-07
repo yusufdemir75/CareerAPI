@@ -10,5 +10,7 @@ namespace CareerAPI.Domain.Entities.Identity
     public class AppUser :IdentityUser<string>
     {
         public string nameSurname { get; set; }
+
+        public string Role { get; set; }
     }
 }
