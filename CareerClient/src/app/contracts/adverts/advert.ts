@@ -6,6 +6,7 @@ export class advert{
     address:string;
     companyName:string;
     typeOfWork:string;
+    isActive:string;
     requirements:string;
-    
+    EndDate:Date;
 }

@@ -21,5 +21,7 @@ namespace CareerAPI.Application.ViewModels.Adverts
         public string typeOfWork { get; set; }
 
         public JsonDocument requirements { get; set; }
+        public bool IsActive { get; set; } = true;
+        public DateTime EndDate { get; set; }
     }
 }

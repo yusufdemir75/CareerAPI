@@ -19,6 +19,7 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
       (data: advert[]) => {
         this.jobs = data;
         this.quillRendered = Array(this.jobs.length).fill(false); // Quill render durumunu izlemek için array başlat
+        console.log('Jobs data on ngOnInit:', this.jobs);
       },
       (error) => {
         console.error('Error fetching job data', error);
@@ -33,6 +34,7 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
         this.quillRendered[index] = true; // Bu index'te Quill render edildi
       }
     });
+    console.log('Jobs data on ngAfterViewChecked:', this.jobs);
   }
 
   displayQuillContent(requirements: string, containerId: string): void {

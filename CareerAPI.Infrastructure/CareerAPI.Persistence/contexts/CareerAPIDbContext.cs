@@ -12,6 +12,10 @@ namespace CareerAPI.Persistence.contexts
 {
     public class CareerAPIDbContext : IdentityDbContext<AppUser,AppRole,string>
     {
+        public CareerAPIDbContext()
+        {
+        }
+
         public CareerAPIDbContext(DbContextOptions options):base(options) 
         { }
 

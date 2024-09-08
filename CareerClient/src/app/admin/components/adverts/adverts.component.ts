@@ -21,7 +21,7 @@ export class AdvertsComponent {
   
 
 
-  create(event:Event,title:HTMLInputElement,companyName:HTMLInputElement,address:HTMLInputElement, position:HTMLInputElement, typeOfWork:HTMLSelectElement,requirement:QuillEditorComponent){
+  create(event:Event,title:HTMLInputElement,companyName:HTMLInputElement,address:HTMLInputElement, position:HTMLInputElement, typeOfWork:HTMLSelectElement,requirement:QuillEditorComponent,date:HTMLInputElement){
     event.preventDefault();
 
     const create_advert: advert = new advert();
@@ -30,8 +30,11 @@ export class AdvertsComponent {
     create_advert.companyName = companyName.value;
     create_advert.position=position.value;
     create_advert.typeOfWork=typeOfWork.value;
+
     const delta: Delta = requirement.quillEditor.getContents();
     create_advert.requirements = JSON.stringify(delta);
+
+    create_advert.EndDate = new Date(date.value);
 
     this.advertsService.create_advert(create_advert,()=>{
       this.toastrService.message("Kayıt Başarılı","İlan Kaydı",ToastrMessageType.Success,ToastrPosition.TopRight)

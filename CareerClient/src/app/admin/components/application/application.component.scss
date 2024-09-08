@@ -3,6 +3,7 @@
   border-radius: 15px; /* Rounded corners */
   background-color: #f8f9fa; /* Background color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  position: relative; /* Required for positioning the label */
   transition: transform 0.2s; /* Smooth transition */
 }
 
@@ -27,6 +28,7 @@
 .card-text {
   font-size: 1rem;
 }
+
 .quill-container {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -34,3 +36,29 @@
   background-color: #f8f9fa;
   min-height: 100px; /* Minimum height ayarlanabilir */
 }
+
+.active-label {
+  position: absolute;
+  top: 10px; /* Slight padding from the top */
+  right: 10px; /* Slight padding from the right */
+  background-color: #28a745; /* Green background */
+  color: white; /* White text color */
+  padding: 5px 10px; /* Padding around the label */
+  border-radius: 12px; /* Rounded corners */
+  font-size: 0.875rem; /* Slightly smaller text size */
+  font-weight: bold; /* Bold text */
+}
+
+.inactive-label {
+  background-color: #dc3545; /* Red background */
+  position: absolute;
+  top: 10px; /* Slight padding from the top */
+  right: 10px; /* Slight padding from the right */
+  color: white; /* White text color */
+  padding: 5px 10px; /* Padding around the label */
+  border-radius: 12px; /* Rounded corners */
+  font-size: 0.875rem; /* Slightly smaller text size */
+  font-weight: bold; /* Bold text */
+}
+
+

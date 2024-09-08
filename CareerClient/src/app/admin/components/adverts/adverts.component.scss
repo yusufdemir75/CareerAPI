@@ -9,6 +9,7 @@
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  position: relative;
 }
 
 .card-header {
@@ -71,18 +72,14 @@ h4 {
   margin-bottom: 20px;
 }
 
-label {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  margin-bottom: 8px;
-  display: inline-block;
-}
 
 input::placeholder {
   font-style: italic;
   font-size: 14px;
   color: #adb5bd;
 }
+
+
 
 /* Mobil Uyumluluk */
 @media (max-width: 576px) {

@@ -28,5 +28,9 @@ namespace CareerAPI.Domain.Entities
         public ICollection<Applications> Applications { get; set; }
 
         public ICollection<Category> Categories { get; set; }
+
+        public bool IsActive { get; set; } 
+
+        public DateTime EndDate { get; set; }
     }
 }

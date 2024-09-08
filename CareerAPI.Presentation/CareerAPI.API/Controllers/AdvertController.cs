@@ -1,11 +1,11 @@
-﻿
-using CareerAPI.Application.Features.Commands.AppUser.CreateUser;
+﻿using CareerAPI.Application.Features.Commands.AppUser.CreateUser;
 using CareerAPI.Application.Repositories;
 using CareerAPI.Application.ViewModels.Adverts;
 using CareerAPI.Persistence.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace CareerAPI.API.Controllers
@@ -34,6 +34,8 @@ namespace CareerAPI.API.Controllers
                 position= model.position,
                 typeOfWork = model.typeOfWork,
                 requirements=model.requirements,
+                IsActive=model.IsActive,
+                EndDate=model.EndDate,
             });
             await _advertWriteRepository.SaveAsync();
             return StatusCode((int)HttpStatusCode.Created);
@@ -42,7 +44,32 @@ namespace CareerAPI.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(_advertReadRepository.GetAll(false).Select(a => new { 
+            var istanbulTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Turkey Standard Time");
+
+            var adverts = _advertReadRepository.GetAll(false).AsNoTracking().ToList();
+
+
+            foreach (var advert in adverts)
+            {
+                var currentDateUtc = DateTime.UtcNow;
+                var advertEndDateUtc = advert.EndDate;
+
+                var currentDate = TimeZoneInfo.ConvertTimeFromUtc(currentDateUtc, istanbulTimeZone);
+                var advertEndDate = TimeZoneInfo.ConvertTimeFromUtc(advertEndDateUtc, istanbulTimeZone);
+
+                if (advertEndDate < currentDate && advert.IsActive)
+                {
+                    advert.IsActive = false;
+                    _advertWriteRepository.Update(advert);
+                }
+
+                
+            }
+
+            await _advertWriteRepository.SaveAsync();
+
+            return Ok(adverts.Select(a => new
+            {
                 a.Id,
                 a.companyName,
                 a.title,
@@ -50,8 +77,13 @@ namespace CareerAPI.API.Controllers
                 a.position,
                 a.typeOfWork,
                 a.requirements,
+                a.IsActive
             }));
         }
+
+
+
+
     }
 
 

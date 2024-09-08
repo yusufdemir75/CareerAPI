@@ -11,6 +11,17 @@
           <p class="card-text"><strong>Type of Work:</strong> {{ job.typeOfWork }}</p>
           <p class="card-text"><strong>Requirements:</strong></p>
           <div [id]="'quill-container-' + i" class="quill-container"></div> <!-- Quill container -->
+
+          <!-- Active/Inactive Label -->
+          
+          <span 
+            [ngClass]="{
+              'active-label': job.isActive ,
+              'inactive-label': !job.isActive 
+            }">
+            {{ job.isActive ? 'Aktif İlan' : 'Pasif İlan' }}
+          </span>
+
         </div>
       </div>
     </div>
