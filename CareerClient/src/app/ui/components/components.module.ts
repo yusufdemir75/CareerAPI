@@ -6,12 +6,16 @@ import { AdvertsModule } from './adverts/adverts.module';
 import { RegisterComponent } from './register/register.component';
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { ProfileModule } from './profile/profile.module';
+import { CreateProfileModule } from './create-profile/create-profile.module';
 
 
 
 @NgModule({
   declarations: [
     
+  
   ],
   imports: [
     CommonModule,
@@ -19,7 +23,9 @@ import { LoginModule } from './login/login.module';
     HomeModule,
     AdvertsModule,
     RegisterModule,
-    LoginModule
+    LoginModule,
+    ProfileModule,
+    CreateProfileModule
   ]
 })
 export class ComponentsModule { }

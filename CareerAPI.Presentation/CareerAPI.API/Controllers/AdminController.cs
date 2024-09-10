@@ -1,6 +1,5 @@
 ﻿using CareerAPI.Application.Features.Commands.AppUser.CreateAdmin;
 using CareerAPI.Application.Features.Commands.AppUser.CreateUser;
-using CareerAPI.Application.Features.Commands.AppUser.LoginAdmin;
 using CareerAPI.Application.Features.Commands.AppUser.LoginUser;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -25,13 +24,7 @@ namespace CareerAPI.API.Controllers
             return Ok(response);
         }
 
-        [HttpPost("[action]")]
-
-        public async Task<IActionResult> Login(LoginAdminCommandRequest loginAdminCommandRequest)
-        {
-            LoginAdminCommandResponse response = await _mediator.Send(loginAdminCommandRequest);
-            return Ok(response);
-        }
+       
 
     }
 }

@@ -25,5 +25,8 @@ namespace CareerAPI.Persistence.contexts
         public DbSet<Applications> Applications { get; set; }
         public DbSet<Advert> Advert { get; set; }
 
+        public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+
     }
 }

@@ -14,7 +14,6 @@ namespace CareerAPI.Infrastructure
         public static void AddInfrastructureServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<ITokenHandler, TokenHandler>();
-            serviceCollection.AddScoped<ICustomerTokenHandler, CustomerTokenHandler>();
 
         }
     }

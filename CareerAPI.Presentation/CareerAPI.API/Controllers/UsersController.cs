@@ -1,6 +1,7 @@
 ﻿using CareerAPI.Application.Features.Commands.AppUser.CreateUser;
 using CareerAPI.Application.Features.Commands.AppUser.LoginUser;
-using CareerAPI.Application.Features.Queries.GetProfile;
+using CareerAPI.Application.Features.Commands.AppUser.UpdateUser;
+using CareerAPI.Application.Features.Queries.AppUser.GetUserRoleQuery;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -41,13 +42,29 @@ namespace CareerAPI.API.Controllers
             return Ok(response);
         }
 
-        [HttpGet("profile")]
-        [Authorize]
-        public async Task<IActionResult> GetProfile()
+        [HttpGet("role/{userName}")]
+        public async Task<IActionResult> GetUserRole(string userName)
         {
-            var query = new GetUserProfileQueryRequest();
-            var profile = await _mediator.Send(query);
-            return Ok(profile);
+            var query = new GetUserRoleQueryRequest(userName);
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
+
+        [HttpPut("updateUser")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommandRequest request)
+        {
+           
+
+
+            var result = await _mediator.Send(request);
+
+
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
         }
 
     }

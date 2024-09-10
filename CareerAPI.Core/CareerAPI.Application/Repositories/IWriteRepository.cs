@@ -23,6 +23,8 @@ namespace CareerAPI.Application.Repositories
 
         bool Update(T model);
 
+        void Attach(T entity);
+
         Task<int> SaveAsync();
 
 

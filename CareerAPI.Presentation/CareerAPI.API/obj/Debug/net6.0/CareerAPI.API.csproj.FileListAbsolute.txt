@@ -26,7 +26,6 @@ C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.A
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.csproj.CoreCompileInputs.cache
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.sourcelink.json
-C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\appsettings.Development.json
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\appsettings.json
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\CareerAPI.API.exe
@@ -92,3 +91,4 @@ C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\ref\CareerAPI.A
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\FluentValidation.dll
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Project\CareerAPI.Presentation\CareerAPI.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Project\CareerAPI.Presentation\CareerAPI.API\obj\Debug\net6.0\CareerAPI.API.MvcApplicationPartsAssemblyInfo.cs

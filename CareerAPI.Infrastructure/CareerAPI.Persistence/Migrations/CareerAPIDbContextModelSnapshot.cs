@@ -243,7 +243,34 @@ namespace CareerAPI.Persistence.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
+                    b.Property<string>("address")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("birthDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("githubLink")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("instaLink")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("nameSurname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("position")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<JsonDocument>("skills")
+                        .IsRequired()
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("twitterLink")
                         .IsRequired()
                         .HasColumnType("text");
 

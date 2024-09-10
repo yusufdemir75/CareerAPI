@@ -10,6 +10,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ProfileModule } from './ui/components/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AdminModule,
+    ProfileModule,
     UiModule,
     ToastrModule.forRoot(),
     HttpClientModule,

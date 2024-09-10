@@ -18,25 +18,26 @@ namespace CareerAPI.Infrastructure.Services.Token
             _configuration = configuration;
         }
 
-        public Application.DTOs.Token CreateAccessToken(int minute, string tokenType)
+        public Application.DTOs.Token CreateAccessToken(int minute)
         {
-            var securityKey = _configuration[$"Token:{tokenType}SecurityKey"];
-            var issuer = _configuration[$"Token:{tokenType}Issuer"];
-            var audience = _configuration[$"Token:{tokenType}Audience"];
+            var securityKey = _configuration[$"Token:SecurityKey"];
+            var issuer = _configuration[$"Token:Issuer"];
+            var audience = _configuration[$"Token:Audience"];
 
             if (string.IsNullOrEmpty(securityKey) || string.IsNullOrEmpty(issuer) || string.IsNullOrEmpty(audience))
             {
-                throw new InvalidOperationException($"Token configuration for '{tokenType}' is not properly set.");
+                throw new InvalidOperationException($"Token configuration for is not properly set.");
             }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, "my_subject"),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                // Diğer claim'ler
+                
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdvertsComponent } from './adverts.component';
+import { advertsComponent } from './adverts.component';
 import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
-    AdvertsComponent
+    advertsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path:"", component: AdvertsComponent}
+      {path:"", component: advertsComponent}
     ])
   ]
 })

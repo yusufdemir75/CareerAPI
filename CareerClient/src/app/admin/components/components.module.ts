@@ -1,8 +1,8 @@
 import { ApplicationModule, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdvertsModule } from './adverts/adverts.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { UsersModule } from './users/users.module';
+import { ProfileModule } from '../../ui/components/profile/profile.module';
 
 
 
@@ -14,7 +14,7 @@ import { UsersModule } from './users/users.module';
     CommonModule,
     AdvertsModule,
     ApplicationModule,
-    DashboardModule,
+    ProfileModule,
     UsersModule
   ]
 })

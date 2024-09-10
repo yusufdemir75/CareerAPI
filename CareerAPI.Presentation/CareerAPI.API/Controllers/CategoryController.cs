@@ -1,4 +1,4 @@
-﻿using CareerAPI.Application.Features.Queries.GetAllProduct;
+﻿using CareerAPI.Application.Features.Queries.Category.GetAllCategory;
 using CareerAPI.Application.Repositories;
 using CareerAPI.Domain.Entities;
 using CareerAPI.Persistence.Repositories;

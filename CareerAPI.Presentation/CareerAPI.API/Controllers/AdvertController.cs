@@ -1,4 +1,7 @@
-﻿using CareerAPI.Application.Features.Commands.AppUser.CreateUser;
+﻿using CareerAPI.Application.Features.Commands.Advert.CreateAdvert;
+using CareerAPI.Application.Features.Commands.Advert.UpdateAdvert;
+using CareerAPI.Application.Features.Queries.Advert.GetActiveAdvert;
+using CareerAPI.Application.Features.Queries.Advert.GetAdvert;
 using CareerAPI.Application.Repositories;
 using CareerAPI.Application.ViewModels.Adverts;
 using CareerAPI.Persistence.Repositories;
@@ -16,71 +19,58 @@ namespace CareerAPI.API.Controllers
     {
         private readonly IAdvertWriteRepository _advertWriteRepository;
         private readonly IAdvertReadRepository _advertReadRepository;
+        private readonly IMediator _mediator;
 
-        public AdvertController(IAdvertWriteRepository advertWriteRepository, IAdvertReadRepository advertReadRepository)
+        public AdvertController(IAdvertWriteRepository advertWriteRepository, IAdvertReadRepository advertReadRepository, IMediator mediator)
         {
             _advertWriteRepository = advertWriteRepository;
             _advertReadRepository = advertReadRepository;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(VM_Create_Advert model)
+        public async Task<IActionResult> CreateAdvert(CreateAdvertCommandRequest createAdvertCommandRequest)
         {
-            await _advertWriteRepository.AddAsync(new()
-            {
-                companyName = model.companyName,
-                title = model.title,
-                address = model.Address,
-                position= model.position,
-                typeOfWork = model.typeOfWork,
-                requirements=model.requirements,
-                IsActive=model.IsActive,
-                EndDate=model.EndDate,
-            });
-            await _advertWriteRepository.SaveAsync();
-            return StatusCode((int)HttpStatusCode.Created);
+            CreateAdvertCommandResponse response = await _mediator.Send(createAdvertCommandRequest);
+
+
+            return Ok(response);
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var istanbulTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Turkey Standard Time");
-
-            var adverts = _advertReadRepository.GetAll(false).AsNoTracking().ToList();
-
-
-            foreach (var advert in adverts)
-            {
-                var currentDateUtc = DateTime.UtcNow;
-                var advertEndDateUtc = advert.EndDate;
-
-                var currentDate = TimeZoneInfo.ConvertTimeFromUtc(currentDateUtc, istanbulTimeZone);
-                var advertEndDate = TimeZoneInfo.ConvertTimeFromUtc(advertEndDateUtc, istanbulTimeZone);
-
-                if (advertEndDate < currentDate && advert.IsActive)
-                {
-                    advert.IsActive = false;
-                    _advertWriteRepository.Update(advert);
-                }
-
-                
-            }
-
-            await _advertWriteRepository.SaveAsync();
-
-            return Ok(adverts.Select(a => new
-            {
-                a.Id,
-                a.companyName,
-                a.title,
-                a.address,
-                a.position,
-                a.typeOfWork,
-                a.requirements,
-                a.IsActive
-            }));
+            
+            var result = await _mediator.Send(new GetAdvertQueryRequest());
+            return Ok(result.Adverts);
         }
 
+        [HttpGet("Active-advert")]
+        public async Task<IActionResult> GetActiveAdvert()
+        {
+
+            var result = await _mediator.Send(new GetActiveAdvertQueryRequest());
+            return Ok(result.Adverts);
+        }
+
+        [HttpPut("update-all")]
+        public async Task<IActionResult> UpdateAllAdverts()
+        {
+            // UpdateAdvertCommandRequest nesnesini oluşturun (Gerekirse parametreleri ekleyin)
+            var request = new UpdateAdvertCommandRequest();
+
+            // Komutu MediatR aracılığıyla gönderin
+            var response = await _mediator.Send(request);
+
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest(response);
+            }
+        }
 
 
 

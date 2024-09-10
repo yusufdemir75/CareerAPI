@@ -87,19 +87,6 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = builder.Configuration["Token:AdminIssuer"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:AdminSecurityKey"]))
     };
-})
-.AddJwtBearer("Customer", options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateAudience = true,
-        ValidateIssuer = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidAudience = builder.Configuration["Token:CustomerAudience"],
-        ValidIssuer = builder.Configuration["Token:CustomerIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:CustomerSecurityKey"]))
-    };
 });
 
 var app = builder.Build();

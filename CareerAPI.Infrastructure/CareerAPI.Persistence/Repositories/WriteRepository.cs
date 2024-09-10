@@ -55,9 +55,16 @@ namespace CareerAPI.Persistence.Repositories
 
         public bool Update(T model)
         {  
+            Attach(model);
+
             EntityEntry entityEntry =
                 Table.Update(model);
             return entityEntry.State == EntityState.Modified;
+        }
+
+        public void Attach(T entity)
+        {
+            _context.Attach(entity);
         }
 
         public async Task<int> SaveAsync()

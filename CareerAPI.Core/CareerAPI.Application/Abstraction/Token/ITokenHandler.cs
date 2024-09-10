@@ -9,6 +9,6 @@ namespace CareerAPI.Application.Abstraction.Token
 {
     public interface  ITokenHandler
     {
-        DTOs.Token CreateAccessToken(int minute,string TokenType);
+        DTOs.Token CreateAccessToken(int minute);
     }
 }

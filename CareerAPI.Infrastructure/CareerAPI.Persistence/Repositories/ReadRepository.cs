@@ -57,5 +57,13 @@ namespace CareerAPI.Persistence.Repositories
                 query = query.AsNoTracking();
             return query;
         }
+        public async Task<IEnumerable<T>> GetAllAsync(bool tracking = true)
+        {
+            var query = Table.AsQueryable();
+            if (!tracking)
+                query = query.AsNoTracking();
+            return await query.ToListAsync();  // Liste olarak dön
+        }
+
     }
 }

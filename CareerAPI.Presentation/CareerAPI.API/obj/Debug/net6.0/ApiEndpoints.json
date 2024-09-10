@@ -16,32 +16,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CareerAPI.API.Controllers.AdminController",
-    "Method": "Login",
-    "RelativePath": "api/Admin/Login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "loginAdminCommandRequest",
-        "Type": "CareerAPI.Application.Features.Commands.AppUser.LoginAdmin.LoginAdminCommandRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "CareerAPI.API.Controllers.AdvertController",
-    "Method": "Post",
+    "Method": "CreateAdvert",
     "RelativePath": "api/Advert",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "CareerAPI.Application.ViewModels.Adverts.VM_Create_Advert",
+        "Name": "createAdvertCommandRequest",
+        "Type": "CareerAPI.Application.Features.Commands.Advert.CreateAdvert.CreateAdvertCommandRequest",
         "IsRequired": true
       }
     ],
@@ -58,6 +42,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CareerAPI.API.Controllers.AdvertController",
+    "Method": "GetActiveAdvert",
+    "RelativePath": "api/Advert/Active-advert",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.AdvertController",
+    "Method": "UpdateAllAdverts",
+    "RelativePath": "api/Advert/update-all",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CareerAPI.API.Controllers.CategoryController",
     "Method": "Get",
     "RelativePath": "api/Category",
@@ -67,7 +71,7 @@
     "Parameters": [
       {
         "Name": "getAllCategoryQueryRequest",
-        "Type": "CareerAPI.Application.Features.Queries.GetAllProduct.GetAllCategoryQueryRequest",
+        "Type": "CareerAPI.Application.Features.Queries.Category.GetAllCategory.GetAllCategoryQueryRequest",
         "IsRequired": false
       }
     ],
@@ -139,12 +143,34 @@
   },
   {
     "ContainingType": "CareerAPI.API.Controllers.UsersController",
-    "Method": "GetProfile",
-    "RelativePath": "api/Users/profile",
+    "Method": "GetUserRole",
+    "RelativePath": "api/Users/role/{userName}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.UsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/updateUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "CareerAPI.Application.Features.Commands.AppUser.UpdateUser.UpdateUserCommandRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

@@ -1,4 +1,5 @@
-﻿using CareerAPI.Application.ViewModels.Adverts;
+﻿using CareerAPI.Application.Features.Commands.Advert.CreateAdvert;
+using CareerAPI.Application.ViewModels.Adverts;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CareerAPI.Application.Validators.Adverts
 {
-    public class CreateAdvertValidator : AbstractValidator<VM_Create_Advert>
+    public class CreateAdvertValidator : AbstractValidator<CreateAdvertCommandRequest>
     {
         public CreateAdvertValidator()
         {

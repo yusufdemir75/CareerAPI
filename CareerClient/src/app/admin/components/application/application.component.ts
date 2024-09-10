@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { AdvertsService } from '../../../services/models/adverts.service';
 import { advert } from '../../../contracts/adverts/advert';
 import Quill from 'quill';
+import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../../services/ui/custom-toastr.service';
 
 @Component({
   selector: 'app-application',
@@ -12,9 +13,27 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
   jobs: advert[] = [];
   quillRendered: boolean[] = [];
 
-  constructor(private advertsService: AdvertsService) { }
+  constructor(private advertsService: AdvertsService, private toastrService:CustomToastrService) { }
 
   ngOnInit(): void {
+    this.updateAllAdverts();
+    this.fetchAdverts();
+  }
+
+  updateAllAdverts(): void {
+    this.advertsService.updateAllAdverts(
+      () => {
+        console.log('All adverts updated successfully');
+        this.fetchAdverts(); // Güncellemeden sonra verileri tekrar al
+      },
+      (errorMessage) => {
+        console.error('Error updating adverts:', errorMessage);
+        this.toastrService.message("Güncelleme Hatası","Başarısız",ToastrMessageType.Error,ToastrPosition.TopRight)
+      }
+    );
+  }
+
+  fetchAdverts(): void {
     this.advertsService.getAdverts().subscribe(
       (data: advert[]) => {
         this.jobs = data;
@@ -51,7 +70,7 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
           }
         });
 
-        quill.setContents(parsedRequirements); // Quill içeriğini ayarla
+        quill.setContents(parsedRequirements); 
       }
     } catch (e) {
       console.error('Error parsing requirements JSON', e);

@@ -18,5 +18,7 @@ namespace CareerAPI.Application.Repositories
         Task<T> GetSingleAsync(Expression<Func<T, bool>> method, bool tracking = true);
 
         Task<T> GetByIdAsync(String id, bool tracking = true);
+
+        Task<IEnumerable<T>> GetAllAsync(bool tracking = true);
     }
 }

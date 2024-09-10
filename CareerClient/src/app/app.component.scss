@@ -1,0 +1,73 @@
+/* Navbar için temel stil */
+.navbar {
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center; /* Navbar'ı ortalar */
+}
+
+/* Container içindeki içerikleri ortalamak için */
+.container-fluid {
+  display: flex;
+  justify-content: center; /* Container içeriğini ortalar */
+  width: 100%;
+}
+
+/* Navbar içindeki bağlantılar için stil */
+.navbar-collapse {
+  display: flex;
+  justify-content: center; /* Navbar içeriğini ortalar */
+  width: 100%; /* Genişliği %100 yaparak ortalamayı sağlar */
+}
+
+/* Navbar içindeki bağlantılar */
+.navbar-nav {
+  display: flex;
+  align-items: center; /* Dikey ortalamayı sağlar */
+  margin: 0; /* Varsayılan margin'i sıfırlamak için */
+}
+
+/* Profil simgesi için stil */
+.profile-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  color: #007bff;
+  background-color: #f0f0f0;
+  border: 2px solid #007bff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.profile-icon:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Navbar içindeki bağlantılar için stil */
+.nav-link {
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 8px; /* Sol ve sağ boşlukları */
+}
+
+/* Çıkış Yap butonu için stil */
+.text-danger {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Yönetim Paneli butonu için stil */
+.text-success {
+  color: #28a745;
+  font-weight: bold;
+}
