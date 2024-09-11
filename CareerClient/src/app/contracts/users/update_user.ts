@@ -1,5 +1,6 @@
 export class updateUser{
     position: string;
+    PhoneNumber:string;
     address: string;
     birthDate: Date; 
     skills: string; 

@@ -24,7 +24,7 @@
                     class="form-control"
                     id="phoneNumber"
                     placeholder="İlan Başlığını Giriniz..."
-                    #phoneNumber
+                    #PhoneNumber
                     />
                 </div>
               
@@ -80,7 +80,7 @@
                     >
                 </div>
             </div>
-              <button type="submit" class="btn btn-brown btn-block" (click)="updateUser(position,address,birthDate,skills,instaLink,githubLink,twitterLink)">
+              <button  class="btn btn-brown btn-block" (click)="updateUser($event,position,PhoneNumber ,address,birthDate,skills,instaLink,githubLink,twitterLink)">
                 Başvuruyu Ekle
               </button>
             </form>

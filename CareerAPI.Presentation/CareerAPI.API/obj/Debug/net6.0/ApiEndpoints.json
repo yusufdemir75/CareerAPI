@@ -127,6 +127,22 @@
   },
   {
     "ContainingType": "CareerAPI.API.Controllers.UsersController",
+    "Method": "GetUser",
+    "RelativePath": "api/Users/{userName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.UsersController",
     "Method": "Login",
     "RelativePath": "api/Users/Login",
     "HttpMethod": "POST",

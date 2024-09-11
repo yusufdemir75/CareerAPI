@@ -19,22 +19,27 @@ export class CreateProfileComponent {
   }
 
   
-  updateUser(position:HTMLInputElement,address:HTMLInputElement,birthDate:HTMLInputElement,skills:QuillEditorComponent,instaLink:HTMLInputElement,githubLink:HTMLInputElement,twitterLink:HTMLInputElement) {
+  updateUser(event: Event,position:HTMLInputElement,PhoneNumber:HTMLInputElement ,address:HTMLInputElement,birthDate:HTMLInputElement,skills:QuillEditorComponent, instaLink:HTMLInputElement,githubLink:HTMLInputElement,twitterLink:HTMLInputElement) {
+    event.preventDefault(); 
     const delta: Delta = skills.quillEditor.getContents();
     debugger;
     const updateRequest: updateUser = {
       position: position.value,
+      PhoneNumber:PhoneNumber.value,
       address: address.value,
       birthDate: new Date(birthDate.value), 
       skills: JSON.stringify(delta),
       instaLink: instaLink.value,
       githubLink: githubLink.value,
       twitterLink: twitterLink.value,
-      userName:this.userName
+      userName:this.userName,
     };
     console.log('Update Request:', updateRequest);
-
+    debugger;
     this.userService.updateUser(updateRequest).then(() => {
+      this.toastrService.message("Güncelleme Başarılı", "Başarılı", ToastrMessageType.Success, ToastrPosition.TopRight);
+    }).catch(() => {
+      this.toastrService.message("Güncelleme işlemi sırasında bir hata oluştu.", "Başarısız", ToastrMessageType.Error, ToastrPosition.TopRight);
     });
   }
 

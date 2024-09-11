@@ -19,8 +19,8 @@ import { ProfileModule } from './ui/components/profile/profile.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+
     AppRoutingModule,
-    ProfileModule,
     UiModule,
     ToastrModule.forRoot(),
     HttpClientModule,

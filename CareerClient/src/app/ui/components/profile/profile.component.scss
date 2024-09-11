@@ -42,7 +42,9 @@ a, a:hover {
     padding-top: 100px;
   }
 }
-
+.profile-card-address{
+  margin-bottom: 10%;
+}
 .profile-card {
   width: 100%;
   min-height: 460px;
@@ -201,33 +203,23 @@ a, a:hover {
         }
       }
 
-      &.facebook {
-        background: linear-gradient(45deg, #3b9f8a, #6ee3e0); /* Açık yeşil - Açık mavi */
-      }
+      
 
       &.twitter {
-        background: linear-gradient(45deg, #6ee3e0, #a8d5f5); /* Açık mavi - Daha açık mavi */
+        background: linear-gradient(45deg, #3b9f8a, #6ee3e0); /* Açık mavi - Daha açık mavi */
       }
 
       &.instagram {
-        background: linear-gradient(45deg, #a8d5f5, #6ee3e0, #a8d5f5); /* Açık mavi - Açık mavi */
+        background: linear-gradient(45deg, #3b9f8a, #6ee3e0); /* Açık mavi - Açık mavi */
       }
 
-      &.behance {
-        background: linear-gradient(45deg, #6ee3e0, #3b9f8a); /* Açık mavi - Açık yeşil */
-      }
+      
 
       &.github {
         background: linear-gradient(45deg, #3b9f8a, #6ee3e0); /* Açık yeşil - Açık mavi */
       }
 
-      &.codepen {
-        background: linear-gradient(45deg, #a8d5f5, #6ee3e0); /* Açık mavi - Açık yeşil */
-      }
-
-      &.link {
-        background: linear-gradient(45deg, #6ee3e0, #a8d5f5); /* Açık yeşil - Açık mavi */
-      }
+     
     }
 
     .icon-font {
@@ -455,16 +447,21 @@ a, a:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-  }
-  
-  .profile-card__info-item {
+    align-items: stretch; 
+}
+
+.profile-card__info-item {
     background: #f9f9f9;
     border: 1px solid #dcdcdc;
     border-radius: 8px;
     padding: 15px;
     min-width: 150px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column; /* İçerikleri dikey olarak hizalar */
+    justify-content: space-between; /* İçeriklerin yukarıdan aşağıya eşit dağılımını sağlar */
+}
   
   .profile-card__info-title {
     font-weight: 700;
@@ -474,5 +471,6 @@ a, a:hover {
   
   .profile-card__info-txt {
     font-weight: 500;
-    color: #2e8b57; /* Açık yeşil */
-  }
+    color: black; /* Açık yeşil */
+    margin-top: 10px; /* Üstten biraz boşluk bırakır */
+}

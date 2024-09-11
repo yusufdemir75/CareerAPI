@@ -50,7 +50,7 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
     this.jobs.forEach((job, index) => {
       if (job.requirements && !this.quillRendered[index]) {
         this.displayQuillContent(job.requirements, `quill-container-${index}`);
-        this.quillRendered[index] = true; // Bu index'te Quill render edildi
+        this.quillRendered[index] = true;
       }
     });
     console.log('Jobs data on ngAfterViewChecked:', this.jobs);

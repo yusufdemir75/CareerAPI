@@ -69,7 +69,7 @@ export class advertsComponent  implements OnInit, AfterViewChecked  {
           }
         });
 
-        quill.setContents(parsedRequirements); // Quill içeriğini ayarla
+        quill.setContents(parsedRequirements); 
       }
     } catch (e) {
       console.error('Error parsing requirements JSON', e);

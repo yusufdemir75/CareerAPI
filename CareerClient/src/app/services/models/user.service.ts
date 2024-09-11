@@ -6,6 +6,7 @@ import { firstValueFrom, Observable } from 'rxjs';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../ui/custom-toastr.service';
 import { tokenResponse } from '../../contracts/Token/tokenResponse';
 import { updateUser } from '../../contracts/users/update_user';
+import { profileUser } from '../../contracts/users/profile_user';
 
 
 @Injectable({
@@ -42,20 +43,24 @@ export class UserService {
       
     }
   }
-  async updateUser( updateRequest: updateUser): Promise<void> {
+  async updateUser(updateRequest: updateUser): Promise<void> {
     try {
-      debugger;
       const observable: Observable<any> = this.httpClientService.put<any>({
-        
         controller: "Users",
         action: "updateUser"
-      }, {...updateRequest });
-
+      }, { ...updateRequest });
+  
+      // Yanıtın düz string olabileceği durumu ele almak
       const response = await firstValueFrom(observable);
-      this.toastrService.message(response, "Güncelleme Başarılı", ToastrMessageType.Success, ToastrPosition.TopRight);
+  
+      // Sunucu yanıtının JSON yerine düz bir mesaj içerdiğini varsayıyoruz
+      if (typeof response === 'string') {
+        this.toastrService.message(response, "Güncelleme Başarılı", ToastrMessageType.Success, ToastrPosition.TopRight);
+      } else {
+        this.toastrService.message("Güncelleme işlemi başarılı.", "Başarılı", ToastrMessageType.Success, ToastrPosition.TopRight);
+      }
     } catch (error) {
-      console.log(error);
-      this.toastrService.message("Güncelleme işlemi sırasında bir hata oluştu.", "Güncelleme Başarısız", ToastrMessageType.Error, ToastrPosition.TopRight);
+      console.error(error);
     }
   }
 
@@ -68,5 +73,21 @@ export class UserService {
 
     const response = await firstValueFrom(observable);
     return response.role; 
-  }
+    }
+
+    async getUser(userName: string): Promise<profileUser> {
+      try {
+        const observable: Observable<profileUser> = this.httpClientService.get<profileUser>({
+          controller: "Users",
+        }, `${encodeURIComponent(userName)}`);
+  
+        return await firstValueFrom(observable);
+      } catch (error) {
+        console.error('Error fetching user data', error);
+        this.toastrService.message("Kullanıcı verilerini alırken bir hata oluştu.", "Hata", ToastrMessageType.Error, ToastrPosition.TopRight);
+        throw error;
+      }
+    }
+
+     
 }

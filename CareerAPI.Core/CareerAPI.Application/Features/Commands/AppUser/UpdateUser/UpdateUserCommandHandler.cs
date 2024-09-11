@@ -27,7 +27,8 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
                     Message = "User not found"
                 };
             }
-
+            user.birthDate = request.birthDate;
+            user.PhoneNumber = request.PhoneNumber;
             user.position = request.Position;
             user.address = request.Address;
             user.skills = request.Skills;

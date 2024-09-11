@@ -1,6 +1,7 @@
 ﻿using CareerAPI.Application.Features.Commands.AppUser.CreateUser;
 using CareerAPI.Application.Features.Commands.AppUser.LoginUser;
 using CareerAPI.Application.Features.Commands.AppUser.UpdateUser;
+using CareerAPI.Application.Features.Queries.AppUser.GetAllUserQuery;
 using CareerAPI.Application.Features.Queries.AppUser.GetUserRoleQuery;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -49,6 +50,23 @@ namespace CareerAPI.API.Controllers
             var result = await _mediator.Send(query);
 
             return Ok(result);
+        }
+
+
+        [HttpGet("{userName}")]
+        public async Task<IActionResult> GetUser(string userName)
+        {
+            var query = new GetAllUserQueryRequest(userName);
+
+            try
+            {
+                var response = await _mediator.Send(query);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
         }
 
         [HttpPut("updateUser")]

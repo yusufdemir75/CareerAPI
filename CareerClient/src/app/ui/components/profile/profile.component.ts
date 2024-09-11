@@ -1,4 +1,6 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { UserService } from '../../../services/models/user.service';
+import { profileUser } from '../../../contracts/users/profile_user';
 
 @Component({
   selector: 'app-profile',
@@ -6,25 +8,22 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  user: profileUser | null = null;
+  error: string | null = null;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  
 
-  ngOnInit(): void {
-    const messageBox = this.el.nativeElement.querySelector('.js-message');
-    const btn = this.el.nativeElement.querySelector('.js-message-btn');
-    const card = this.el.nativeElement.querySelector('.js-profile-card');
-    const closeBtn = this.el.nativeElement.querySelectorAll('.js-message-close');
+  constructor(private userservice: UserService) {}
+  async ngOnInit(): Promise<void> {
+    debugger;
+    const username = localStorage.getItem('username')
 
-    this.renderer.listen(btn, 'click', (e) => {
-      e.preventDefault();
-      this.renderer.addClass(card, 'active');
-    });
-
-    closeBtn.forEach(element => {
-      this.renderer.listen(element, 'click', (e) => {
-        e.preventDefault();
-        this.renderer.removeClass(card, 'active');
-      });
-    });
+    try {
+      this.user = await this.userservice.getUser(username);
+    } catch (error) {
+      this.error = 'Kullanıcı verileri alınamadı.';
+    }
+    console.log(this.user);
   }
+  
 }

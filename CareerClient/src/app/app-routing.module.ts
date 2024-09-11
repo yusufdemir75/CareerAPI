@@ -19,6 +19,7 @@ const routes: Routes = [
       {path: "", component : AdvertsComponent ,canActivate:[authGuard]}
       
     ],canActivate:[authGuard]},
+    
     {path: "profile", loadChildren : ()=> import("./ui/components/profile/profile.module").then(module => ProfileModule),canActivate:[roleGuard] },
     {path: "", component: LoginComponent},
     {path: "adverts", loadChildren:()=> import("./ui/components/adverts/adverts.module").then(module => module.AdvertsModule),canActivate:[roleGuard]},

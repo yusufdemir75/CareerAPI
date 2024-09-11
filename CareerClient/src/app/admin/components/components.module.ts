@@ -14,7 +14,6 @@ import { ProfileModule } from '../../ui/components/profile/profile.module';
     CommonModule,
     AdvertsModule,
     ApplicationModule,
-    ProfileModule,
     UsersModule
   ]
 })
