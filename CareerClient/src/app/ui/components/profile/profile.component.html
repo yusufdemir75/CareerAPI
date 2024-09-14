@@ -6,8 +6,8 @@
 
     <div class="profile-card__cnt js-profile-cnt">
       <!-- Profil Bilgileri -->
-      <div class="profile-card__name">{{ user?.position }}</div>
-      <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div>
+      <div class="profile-card__name">{{ user?.nameSurname }}</div>
+      <div class="profile-card__position">{{user?.position}}</div>
       <div class="profile-card-loc">
         <span class="profile-card-loc__icon">
           <svg class="icon"><use xlink:href="#icon-location"></use></svg>
@@ -22,20 +22,19 @@
           <div class="profile-card__info">
             <div class="profile-card__info-item">
               <div class="profile-card__info-title">Skills</div>
-              <div class="profile-card__info-txt">{{ user?.skills }}</div>
+              <div class="profile-card__info-txt">
+                <div id="quill-container"></div>
+              </div>
             </div>
             <div class="profile-card__info-item">
-              <div class="profile-card__info-title">Birthday</div>
-              <div class="profile-card__info-txt">{{ user?.birthDate | date }}</div>
+              <div class="profile-card__info-title">Age</div>
+              <div class="profile-card__info-txt">{{ user?.age}}</div>
             </div>
             <div class="profile-card__info-item">
               <div class="profile-card__info-title">Location</div>
               <div class="profile-card__info-txt">{{ user?.address }}</div>
             </div>
-            <div class="profile-card__info-item">
-              <div class="profile-card__info-title">Experience</div>
-              <div class="profile-card__info-txt">{{ user?.experience }}</div>
-            </div>
+          
           </div>
         </div>
       </div>

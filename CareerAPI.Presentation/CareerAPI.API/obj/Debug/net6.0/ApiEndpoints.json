@@ -62,6 +62,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CareerAPI.API.Controllers.ApplyAdvertController",
+    "Method": "CreateApplyAdvert",
+    "RelativePath": "api/ApplyAdvert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createApplyAdvertCommandRequest",
+        "Type": "CareerAPI.Application.Features.Commands.ApplyAdvert.CreateApplyAdvert.CreateApplyAdvertCommandRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.ApplyAdvertController",
+    "Method": "Get",
+    "RelativePath": "api/ApplyAdvert",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CareerAPI.API.Controllers.CategoryController",
     "Method": "Get",
     "RelativePath": "api/Category",

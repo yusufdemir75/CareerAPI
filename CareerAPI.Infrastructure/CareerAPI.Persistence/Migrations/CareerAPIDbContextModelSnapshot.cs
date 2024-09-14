@@ -143,6 +143,51 @@ namespace CareerAPI.Persistence.Migrations
                     b.ToTable("Applications");
                 });
 
+            modelBuilder.Entity("CareerAPI.Domain.Entities.ApplyAdvert", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("address")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("advertTitle")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("isApproved")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("nameSurname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("position")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<JsonDocument>("skills")
+                        .IsRequired()
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("userName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ApplyAdverts");
+                });
+
             modelBuilder.Entity("CareerAPI.Domain.Entities.Category", b =>
                 {
                     b.Property<Guid>("Id")
@@ -247,8 +292,9 @@ namespace CareerAPI.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("birthDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("age")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("githubLink")
                         .IsRequired()

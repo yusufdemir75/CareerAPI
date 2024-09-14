@@ -1,7 +1,8 @@
 export class profileUser {
+    nameSurname:string;
     address: string;
     position: string;
-    birthDate: string; 
+    age: string; 
     experience: string;
     githubLink?: string;
     twitterLink?: string;

@@ -3,7 +3,7 @@
       <div class="col-lg-8 mx-auto">
         <div class="card shadow-sm position-relative">
           <div class="card-header btn-cream text-white">
-            <h4 class="mb-0" style="color: black;">İlan Başvurusu Ekle</h4>
+            <h4 class="mb-0" style="color: black;">Profilinizi Oluşturun</h4>
           </div>
           <div class="card-body">
             <form>
@@ -34,21 +34,21 @@
                     type="text"
                     class="form-control"
                     id="address"
-                    placeholder="Adres Giriniz"
+                    placeholder="Adresinizi Giriniz"
                     #address
                     />
                 </div>
                 
               
-              <div class="form-group mb-3">
-                <label for="birthDate">Doğum Tarihi</label>
-                <input
-                  type="datetime-local"
+                <div class="form-group mb-3">
+                  <label for="age">Yaş</label>
+                  <input
+                  type="text"
                   class="form-control"
-                  id="birthDate"
-                  placeholder="Başvuru Tarihini Giriniz..."
-                  #birthDate
-                />
+                  id="age"
+                  placeholder="Yaşınızı Giriniz"
+                  #age
+                  />
               </div>
               <div class="form-group mb-3">
                 <label for="skills">Yetenekler</label>
@@ -80,8 +80,8 @@
                     >
                 </div>
             </div>
-              <button  class="btn btn-brown btn-block" (click)="updateUser($event,position,PhoneNumber ,address,birthDate,skills,instaLink,githubLink,twitterLink)">
-                Başvuruyu Ekle
+              <button  class="btn btn-brown btn-block" (click)="updateUser($event,position,PhoneNumber ,address,age,skills,instaLink,githubLink,twitterLink)">
+                Profil Oluştur
               </button>
             </form>
           </div>

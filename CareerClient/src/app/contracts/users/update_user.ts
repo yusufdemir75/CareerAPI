@@ -2,7 +2,7 @@ export class updateUser{
     position: string;
     PhoneNumber:string;
     address: string;
-    birthDate: Date; 
+    age: string; 
     skills: string; 
     instaLink: string;
     githubLink: string;

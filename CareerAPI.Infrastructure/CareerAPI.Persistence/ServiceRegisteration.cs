@@ -12,6 +12,8 @@ using CareerAPI.Application.Repositories;
 using CareerAPI.Persistence.Repositories;
 using CareerAPI.Domain.Entities.Identity;
 using Microsoft.Extensions.Options;
+using CareerAPI.Application.Repositories.ApplyAdvert;
+using CareerAPI.Persistence.Repositories.ApplyAdvert;
 
 namespace CareerAPI.Persistence
 {
@@ -43,10 +45,13 @@ namespace CareerAPI.Persistence
             services.AddScoped<ICategoryWriteRepository, CategoryWriteRepository>();
             services.AddScoped<IUserReadRepository, UserReadRepository>();
             services.AddScoped<IUserWriteRepository, UserWriteRepository>();
+            services.AddScoped<IApplyAdvertWriteRepository, ApplyAdvertWriteRepository>();
+            services.AddScoped<IApplyAdvertReadRepository, ApplyAdvertReadRepository>();
+
 
 
 
         }
-       
+
     }
 }

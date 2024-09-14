@@ -1,7 +1,8 @@
 import { Delta } from "quill/core";
 
 export class advert{
-    Title: string;
+    Id:string;
+    title: string;
     position:string;
     address:string;
     companyName:string;

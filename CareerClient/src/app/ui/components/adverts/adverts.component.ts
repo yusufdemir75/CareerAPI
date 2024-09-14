@@ -3,6 +3,10 @@ import { AdvertsService } from '../../../services/models/adverts.service';
 import { advert } from '../../../contracts/adverts/advert';
 import Quill from 'quill';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../../services/ui/custom-toastr.service';
+import { UserService } from '../../../services/models/user.service';
+import { Router } from '@angular/router';
+import { applyAdvert } from '../../../contracts/adverts/applyAdvert';
+import { ApplyAdvertService } from '../../../services/models/apply-advert.service';
 
 @Component({
   selector: 'app-adverts',
@@ -13,7 +17,8 @@ export class advertsComponent  implements OnInit, AfterViewChecked  {
   jobs: advert[] = [];
   quillRendered: boolean[] = [];
 
-  constructor(private advertsService: AdvertsService, private toastrService:CustomToastrService) { }
+  constructor(private advertsService: AdvertsService, private applyAdvertService:ApplyAdvertService, private toastrService:CustomToastrService, private userService: UserService, // Kullanıcı servisi dahil edildi
+    private router: Router) { }
   ngOnInit(): void {
     this.updateAllAdverts();
     this.fetchAdverts();
@@ -36,11 +41,10 @@ export class advertsComponent  implements OnInit, AfterViewChecked  {
     this.advertsService.getActiveAdverts().subscribe(
       (data: advert[]) => {
         this.jobs = data;
-        this.quillRendered = Array(this.jobs.length).fill(false); // Quill render durumunu izlemek için array başlat
-        console.log('Jobs data on ngOnInit:', this.jobs);
+        console.log('Gelen iş ilanları:', this.jobs); // Verileri kontrol et
       },
       (error) => {
-        console.error('Error fetching job data', error);
+        console.error('İlan verisi alınamadı', error);
       }
     );
   }
@@ -75,4 +79,29 @@ export class advertsComponent  implements OnInit, AfterViewChecked  {
       console.error('Error parsing requirements JSON', e);
     }
   }
+  async applyForJob(event: Event, jobTitle: string) {
+    event.preventDefault();
+    const create_applyAdvert: applyAdvert = new applyAdvert();
+    const username = localStorage.getItem('username'); // LocalStorage'dan username alınır
+    const userDetails = await this.userService.getUser(username);
+  
+    if (username) {
+      create_applyAdvert.nameSurname = userDetails.nameSurname;
+      create_applyAdvert.address = userDetails.address;
+      create_applyAdvert.advertTitle = jobTitle;
+      create_applyAdvert.position = userDetails.position;
+      create_applyAdvert.skills = userDetails.skills;
+      create_applyAdvert.userName = username;
+  
+      this.applyAdvertService.create_applyAdvert(create_applyAdvert,
+        () => {
+          this.toastrService.message("Kayıt Başarılı", "İlan Kaydı", ToastrMessageType.Success, ToastrPosition.TopRight);
+        },
+        errorMessage => {
+          this.toastrService.message(errorMessage, "Kayıt Durumu", ToastrMessageType.Info, ToastrPosition.TopRight);
+        }
+      );
+    }
+  }
+  
 }

@@ -36,16 +36,15 @@
   border-radius: 50%;
   line-height: 40px;
   text-align: center;
-  color: #007bff;
-  background-color: #f0f0f0;
-  border: 2px solid #007bff;
+  color: #6ac51f;
+  background-color: #f8f9fa;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.profile-icon:hover {
-  background-color: #007bff;
-  color: #fff;
+.text-coal {
+  color: #333333; 
 }
+
 
 /* Navbar içindeki bağlantılar için stil */
 .nav-link {

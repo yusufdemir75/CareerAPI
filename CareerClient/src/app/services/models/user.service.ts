@@ -45,15 +45,14 @@ export class UserService {
   }
   async updateUser(updateRequest: updateUser): Promise<void> {
     try {
+      debugger;
       const observable: Observable<any> = this.httpClientService.put<any>({
         controller: "Users",
         action: "updateUser"
       }, { ...updateRequest });
   
-      // Yanıtın düz string olabileceği durumu ele almak
       const response = await firstValueFrom(observable);
   
-      // Sunucu yanıtının JSON yerine düz bir mesaj içerdiğini varsayıyoruz
       if (typeof response === 'string') {
         this.toastrService.message(response, "Güncelleme Başarılı", ToastrMessageType.Success, ToastrPosition.TopRight);
       } else {
@@ -64,7 +63,6 @@ export class UserService {
     }
   }
 
-   // Kullanıcı rolünü getirmek için yeni metod
    async getUserRole(username: string): Promise<string> {
     const observable: Observable<any> = this.httpClientService.get({
       controller: "Users",

@@ -2,20 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CareerAPI.Domain.Entities.Identity
 {
-    public class AppUser :IdentityUser<string>
+    public class AppUser : IdentityUser<string>
     {
         public string nameSurname { get; set; }
-
         public string Role { get; set; }
 
-        public DateTime birthDate { get; set; }
+        public string age { get; set; }
 
         public string position { get; set; }
 

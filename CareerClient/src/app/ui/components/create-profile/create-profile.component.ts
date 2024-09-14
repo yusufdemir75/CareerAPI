@@ -19,7 +19,7 @@ export class CreateProfileComponent {
   }
 
   
-  updateUser(event: Event,position:HTMLInputElement,PhoneNumber:HTMLInputElement ,address:HTMLInputElement,birthDate:HTMLInputElement,skills:QuillEditorComponent, instaLink:HTMLInputElement,githubLink:HTMLInputElement,twitterLink:HTMLInputElement) {
+  updateUser(event: Event,position:HTMLInputElement,PhoneNumber:HTMLInputElement ,address:HTMLInputElement,age:HTMLInputElement,skills:QuillEditorComponent, instaLink:HTMLInputElement,githubLink:HTMLInputElement,twitterLink:HTMLInputElement) {
     event.preventDefault(); 
     const delta: Delta = skills.quillEditor.getContents();
     debugger;
@@ -27,7 +27,7 @@ export class CreateProfileComponent {
       position: position.value,
       PhoneNumber:PhoneNumber.value,
       address: address.value,
-      birthDate: new Date(birthDate.value), 
+      age: age.value,
       skills: JSON.stringify(delta),
       instaLink: instaLink.value,
       githubLink: githubLink.value,

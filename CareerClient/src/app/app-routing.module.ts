@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: "admin", component:LayoutComponent,children:[
       {path: "adverts", loadChildren : ()=> import("./admin/components/adverts/adverts.module").then(module => AdvertsModule),canActivate:[authGuard]},
       {path: "application", loadChildren : ()=> import("./admin/components/application/application.module").then(module => ApplicationModule) ,canActivate:[authGuard]},
-      {path: "users", loadChildren : ()=> import("./admin/components/users/users.module").then(module => UsersModule) ,canActivate:[authGuard]},
+      {path: "users", loadChildren : ()=> import("./admin/components/users/users.module").then(module => UsersModule)},
       {path: "", component : AdvertsComponent ,canActivate:[authGuard]}
       
     ],canActivate:[authGuard]},

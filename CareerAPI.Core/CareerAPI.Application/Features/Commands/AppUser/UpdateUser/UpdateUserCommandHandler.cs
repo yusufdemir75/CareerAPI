@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.Linq;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,15 +29,46 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
                     Message = "User not found"
                 };
             }
-            user.birthDate = request.birthDate;
-            user.PhoneNumber = request.PhoneNumber;
-            user.position = request.Position;
-            user.address = request.Address;
-            user.skills = request.Skills;
-            user.githubLink= request.githubLink;
-            user.instaLink = request.instaLink;
-            user.twitterLink = request.twitterLink;
 
+            // Update only if the request value is not null or empty
+            if (!string.IsNullOrEmpty(request.age))
+            {
+                user.age = request.age;
+            }
+            if (!string.IsNullOrEmpty(request.PhoneNumber))
+            {
+                user.PhoneNumber = request.PhoneNumber;
+            }
+
+            if (!string.IsNullOrEmpty(request.Position))
+            {
+                user.position = request.Position;
+            }
+
+            if (!string.IsNullOrEmpty(request.Address))
+            {
+                user.address = request.Address;
+            }
+
+            if (!string.IsNullOrEmpty(request.githubLink))
+            {
+                user.githubLink = request.githubLink;
+            }
+
+            if (!string.IsNullOrEmpty(request.instaLink))
+            {
+                user.instaLink = request.instaLink;
+            }
+
+            if (!string.IsNullOrEmpty(request.twitterLink))
+            {
+                user.twitterLink = request.twitterLink;
+            }
+
+            if (request.skills != null)
+            {
+                user.skills = request.skills;
+            }
             var result = await _userManager.UpdateAsync(user);
 
             if (result.Succeeded)

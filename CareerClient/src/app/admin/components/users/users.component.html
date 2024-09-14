@@ -1,1 +1,37 @@
-<p>users works!</p>
+<div class="container">
+  <h1>Başvurulan İlanlar</h1>
+  <table class="job-applications-table">
+    <thead>
+      <tr>
+        <th>Kullanıcı İsmi</th>
+        <th>İsim Soyisim</th>
+        <th>Pozisyon</th>
+        <th>Yetenekler</th>
+        <th>Lokasyon</th>
+        <th>İlan Başlığı</th>
+        <th>İlan Durumu</th>
+        <th><p style="margin-left: 6vh; font-size:larger; margin-top: 2vh;">İşlem</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let applyAdvert of applyAdverts; let i = index">
+        <td>{{ applyAdvert.userName }}</td>
+        <td>{{ applyAdvert.nameSurname }}</td>
+        <td>{{ applyAdvert.position }}</td>
+        <td>
+          <!-- Quill container for skills -->
+          <div [id]="'quill-container-' + i" class="quill-container"></div>
+        </td>
+        <td>{{ applyAdvert.address }}</td>
+        <td>{{ applyAdvert.advertTitle }}</td>
+        <td><span class="pending-label">ilan beklemede</span></td>
+        <td>
+          <div class="button-group">
+            <button class="btn btn-approve">Onayla</button>
+            <button class="btn btn-reject">Reddet</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

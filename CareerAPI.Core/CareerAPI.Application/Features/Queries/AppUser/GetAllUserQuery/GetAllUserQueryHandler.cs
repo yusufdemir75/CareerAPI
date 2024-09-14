@@ -32,9 +32,12 @@ namespace CareerAPI.Application.Features.Queries.AppUser.GetAllUserQuery
 
             var response = new GetAllUserQueryResponse
             {
+                        
+                       Email=user.Email,
+                       nameSurname = user.nameSurname,
+                       age = user.age,
                        PhoneNumber=user.PhoneNumber,
                        address=user.address,
-                       birthDate=user.birthDate,
                        position=user.position,
                        skills=user.skills,
                        githubLink=user.githubLink,

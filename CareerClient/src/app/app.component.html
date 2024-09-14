@@ -1,16 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-  
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="home" *ngIf="userRole==='Customer' && authService.isAuthenticated  ">Anasayfa</a>
+          <a class="nav-link active" aria-current="page" routerLink="home" *ngIf="userRole==='Customer' && authService.isAuthenticated">Anasayfa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="adverts" *ngIf=" userRole==='Customer' && authService.isAuthenticated">İlan</a>
+          <a class="nav-link active" aria-current="page" routerLink="adverts" *ngIf="userRole==='Customer' && authService.isAuthenticated">İlanlar</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="login" *ngIf="!authService.isAuthenticated">Giriş Yap</a>
@@ -19,17 +18,18 @@
           <a class="nav-link active" aria-current="page" routerLink="register" *ngIf="!authService.isAuthenticated">Kayıt Ol</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-success" routerLink="admin" *ngIf=" userRole==='Admin' && authService.isAuthenticated ">Yönetim Paneli</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="create-profile" *ngIf="userRole==='Customer' && authService.isAuthenticated  ">Profil Oluştur</a>
+          <a class="nav-link text-success" routerLink="admin" *ngIf="userRole==='Admin' && authService.isAuthenticated">Yönetim Paneli</a>
         </li>
         
-        
-        <li class="nav-item ms-auto">
-          <a class="nav-link" routerLink="profile" *ngIf="authService.isAuthenticated && userRole==='Customer'">
-            <span class="profile-icon">👤</span>
+        <li class="nav-item ms-auto dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="true" *ngIf="userRole==='Customer' && authService.isAuthenticated">
+            <span class="profile-icon">⚙️</span>
           </a>
+          
+          <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" routerLink="create-profile">🔧 Profil Düzenle</a></li>
+            <li><a class="dropdown-item" routerLink="profile">👁‍🗨 Profilim</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link text-danger" routerLink="" (click)="signOut()" *ngIf="authService.isAuthenticated">Çıkış Yap</a>

@@ -25,7 +25,7 @@ export class AdvertsComponent {
     event.preventDefault();
 
     const create_advert: advert = new advert();
-    create_advert.Title= title.value;
+    create_advert.title= title.value;
     create_advert.address=address.value;
     create_advert.companyName = companyName.value;
     create_advert.position=position.value;
