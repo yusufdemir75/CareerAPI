@@ -7,6 +7,17 @@
           </div>
           <div class="card-body">
             <form>
+              <div class="form-group mb-3">
+                <label for="image">Resim</label>
+                <input
+                (change)="OnFileChange($event)"
+                  type="file"
+                  class="form-control"
+                  id="image"
+                  placeholder="Gerekli Pozisyonu Giriniz..."
+                
+                />
+            </div>
                 <div class="form-group mb-3">
                     <label for="position">Pozisyon</label>
                     <input

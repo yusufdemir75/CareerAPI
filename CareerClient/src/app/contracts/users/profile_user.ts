@@ -8,4 +8,5 @@ export class profileUser {
     twitterLink?: string;
     instaLink?: string;
     skills: string; 
+    imageUrl:string;
   }

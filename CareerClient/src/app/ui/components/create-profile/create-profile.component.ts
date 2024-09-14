@@ -5,6 +5,8 @@ import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../..
 import { HttpClientService } from '../../../services/common/http-client.service';
 import { UserService } from '../../../services/models/user.service';
 import { updateUser } from '../../../contracts/users/update_user';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-create-profile',
@@ -14,8 +16,39 @@ import { updateUser } from '../../../contracts/users/update_user';
 export class CreateProfileComponent {
 
   userName: string | null = null;
-  constructor(private userService:UserService,private toastrService:CustomToastrService) {
+  constructor(private userService:UserService,private toastrService:CustomToastrService,private storage: AngularFireStorage) {
     this.userName = localStorage.getItem('username');
+  }
+  selectedFile: File | null = null;
+  fileUrl:string | null=null
+
+
+  // Handle file input change
+  OnFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      this.uploadFile();  // Call upload function
+    }
+  }
+
+  // Upload the file to Firebase Storage
+  uploadFile() {
+    if (this.selectedFile) {
+      const filePath = `profile_pics/${Date.now()}_${this.selectedFile.name}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, this.selectedFile);
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(url => {
+            this.fileUrl= url;
+            console.log('File URL:', this.fileUrl); // Log file URL after successful upload
+          });
+        })
+      ).subscribe();
+    } else {
+      console.error('No file selected!');
+    }
   }
 
   
@@ -33,6 +66,7 @@ export class CreateProfileComponent {
       githubLink: githubLink.value,
       twitterLink: twitterLink.value,
       userName:this.userName,
+      imageUrl:this.fileUrl
     };
     console.log('Update Request:', updateRequest);
     debugger;

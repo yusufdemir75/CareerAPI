@@ -29,5 +29,43 @@ namespace CareerAPI.Persistence.contexts
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Fluent API ile konfigürasyon
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.imageUrl)
+                .IsRequired(false);
+
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.position)
+                .IsRequired(false);
+
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.address)
+                .IsRequired(false);
+
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.githubLink)
+                .IsRequired(false);
+
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.instaLink)
+                .IsRequired(false);
+
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.twitterLink)
+                .IsRequired(false);
+
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.age)
+                .IsRequired(false);
+
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.skills)
+                .IsRequired(false);
+        }
+
     }
 }

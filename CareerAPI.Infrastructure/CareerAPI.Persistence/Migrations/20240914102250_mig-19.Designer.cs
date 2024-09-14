@@ -4,6 +4,7 @@ using System.Text.Json;
 using CareerAPI.Persistence.contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerAPI.Persistence.Migrations
 {
     [DbContext(typeof(CareerAPIDbContext))]
-    partial class CareerAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240914102250_mig-19")]
+    partial class mig19
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -289,30 +291,39 @@ namespace CareerAPI.Persistence.Migrations
                         .HasColumnType("character varying(256)");
 
                     b.Property<string>("address")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("age")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("githubLink")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("imageUrl")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("instaLink")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("nameSurname")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("position")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<JsonDocument>("skills")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("twitterLink")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

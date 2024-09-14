@@ -21,16 +21,15 @@
           <a class="nav-link text-success" routerLink="admin" *ngIf="userRole==='Admin' && authService.isAuthenticated">Yönetim Paneli</a>
         </li>
         
-        <li class="nav-item ms-auto dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="true" *ngIf="userRole==='Customer' && authService.isAuthenticated">
-            <span class="profile-icon">⚙️</span>
+        
+        <li class="nav-item" >
+          <a class="nav-link active" routerLink="create-profile" *ngIf="userRole==='Customer' && authService.isAuthenticated">⚙️ Profil Düzenle</a></li>
+          <li class="nav-item" >
+            <a class="nav-link active"
+            routerLink="profile" *ngIf="userRole==='Customer' && authService.isAuthenticated">👁‍🗨 Profilim
           </a>
-          
-          <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-            <li><a class="dropdown-item" routerLink="create-profile">🔧 Profil Düzenle</a></li>
-            <li><a class="dropdown-item" routerLink="profile">👁‍🗨 Profilim</a></li>
-          </ul>
         </li>
+          
         <li class="nav-item">
           <a class="nav-link text-danger" routerLink="" (click)="signOut()" *ngIf="authService.isAuthenticated">Çıkış Yap</a>
         </li>

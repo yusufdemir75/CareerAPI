@@ -1,5 +1,6 @@
 export class updateUser{
     position: string;
+    imageUrl:string;
     PhoneNumber:string;
     address: string;
     age: string; 
@@ -8,4 +9,5 @@ export class updateUser{
     githubLink: string;
     twitterLink: string;
     userName:string;
+    
 }

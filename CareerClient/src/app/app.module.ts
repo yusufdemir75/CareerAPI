@@ -11,7 +11,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ProfileModule } from './ui/components/profile/profile.module';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +21,8 @@ import { ProfileModule } from './ui/components/profile/profile.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     AppRoutingModule,
     UiModule,
     ToastrModule.forRoot(),

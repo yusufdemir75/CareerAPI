@@ -32,7 +32,7 @@ namespace CareerAPI.Application.Features.Queries.AppUser.GetAllUserQuery
 
             var response = new GetAllUserQueryResponse
             {
-                        
+                       imageUrl=user.imageUrl,
                        Email=user.Email,
                        nameSurname = user.nameSurname,
                        age = user.age,

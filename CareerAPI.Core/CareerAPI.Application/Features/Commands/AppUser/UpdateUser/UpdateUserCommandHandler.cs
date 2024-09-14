@@ -21,7 +21,7 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
 
-            if (user == null)
+            if (user.UserName == null)
             {
                 return new UpdateUserCommandResponse
                 {
@@ -30,7 +30,11 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
                 };
             }
 
-            // Update only if the request value is not null or empty
+            if (!string.IsNullOrEmpty(request.imageUrl))
+            {
+                user.imageUrl = request.imageUrl;
+            }
+
             if (!string.IsNullOrEmpty(request.age))
             {
                 user.age = request.age;
@@ -65,7 +69,7 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
                 user.twitterLink = request.twitterLink;
             }
 
-            if (request.skills != null)
+            if (request.skills.RootElement.ToString() != "{\"ops\":[{\"insert\":\"\\n\"}]}")
             {
                 user.skills = request.skills;
             }
@@ -82,6 +86,7 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
 
             return new UpdateUserCommandResponse
             {
+
                 Success = false,
                 Message = string.Join(", ", result.Errors.Select(e => e.Description))
             };

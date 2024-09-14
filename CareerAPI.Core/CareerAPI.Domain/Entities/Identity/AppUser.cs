@@ -10,20 +10,21 @@ namespace CareerAPI.Domain.Entities.Identity
 {
     public class AppUser : IdentityUser<string>
     {
-        public string nameSurname { get; set; }
-        public string Role { get; set; }
+        public string? imageUrl { get; set; } 
+        public string? nameSurname { get; set; } 
+        public string Role { get; set; } 
 
-        public string age { get; set; }
+        public string? age { get; set; } 
 
-        public string position { get; set; }
+        public string? position { get; set; } 
 
-        public string address { get; set; }
+        public string? address { get; set; } 
 
-        public JsonDocument skills { get; set; }
+        public JsonDocument? skills { get; set; } 
 
-        public string githubLink { get; set; }
-        public string instaLink { get; set; }
-        public string twitterLink { get; set; }
+        public string? githubLink { get; set; } 
+        public string? instaLink { get; set; } 
+        public string? twitterLink { get; set; } 
 
 
 

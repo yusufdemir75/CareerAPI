@@ -15,6 +15,7 @@ namespace CareerAPI.Application.Features.Queries.AppUser.GetAllUserQuery
         public string nameSurname { get; set; }
         public string address { get; set; }
 
+        public string imageUrl { get; set; }
         public string age { get; set; }
         public string position { get; set; }
 

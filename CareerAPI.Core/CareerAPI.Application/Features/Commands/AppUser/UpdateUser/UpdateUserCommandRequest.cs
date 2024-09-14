@@ -10,17 +10,18 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
 {
     public class UpdateUserCommandRequest:IRequest<UpdateUserCommandResponse>
     {
-        public string UserName { get; set; }
-        public string Position { get; set; }
-        public string Address { get; set; }
-        public string age { get; set; }
-        public JsonDocument skills { get; set; }
+        public string? imageUrl { get; set; }
+        public string? UserName { get; set; }
+        public string? Position { get; set; }
+        public string? Address { get; set; }
+        public string? age { get; set; }
+        public JsonDocument? skills { get; set; }
 
-        public string githubLink { get; set; }
-        public string instaLink { get; set; }
-        public string twitterLink { get; set; }
+        public string? githubLink { get; set; }
+        public string? instaLink { get; set; }
+        public string? twitterLink { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
     }
 }
