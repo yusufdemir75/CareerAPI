@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "CareerAPI.API.Controllers.AdvertController",
+    "Method": "DeleteAdvert",
+    "RelativePath": "api/Advert/{advertNo}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "advertNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.AdvertController",
     "Method": "GetActiveAdvert",
     "RelativePath": "api/Advert/Active-advert",
     "HttpMethod": "GET",
@@ -88,47 +104,52 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CareerAPI.API.Controllers.CategoryController",
-    "Method": "Get",
-    "RelativePath": "api/Category",
-    "HttpMethod": "GET",
+    "ContainingType": "CareerAPI.API.Controllers.ApplyAdvertController",
+    "Method": "UpdateApplyAdvert",
+    "RelativePath": "api/ApplyAdvert/{advertNo}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "getAllCategoryQueryRequest",
-        "Type": "CareerAPI.Application.Features.Queries.Category.GetAllCategory.GetAllCategoryQueryRequest",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CareerAPI.API.Controllers.CategoryController",
-    "Method": "Get",
-    "RelativePath": "api/Category/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
+        "Name": "advertNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
-        "Name": "id",
-        "Type": "System.String",
+        "Name": "request",
+        "Type": "CareerAPI.Application.Features.Commands.ApplyAdvert.UpdateApplyAdvert.UpdateApplyAdvertCommandRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CareerAPI.API.Controllers.CategoryController",
-    "Method": "Delete",
-    "RelativePath": "api/Category/{id}",
+    "ContainingType": "CareerAPI.API.Controllers.ApplyAdvertController",
+    "Method": "DeleteAdvert",
+    "RelativePath": "api/ApplyAdvert/{advertNo}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "advertNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CareerAPI.API.Controllers.ApplyAdvertController",
+    "Method": "GetPersonelApplies",
+    "RelativePath": "api/ApplyAdvert/getpersonelapplies/{userName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
         "Type": "System.String",
         "IsRequired": true
       }

@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Başvurulan İlanlar</h1>
+  <button (click)="exportExcel()" class="export-button">Excel'e Aktar</button>
   <table class="job-applications-table">
     <thead>
       <tr>
@@ -8,6 +9,7 @@
         <th>Pozisyon</th>
         <th>Yetenekler</th>
         <th>Lokasyon</th>
+        <th> CV </th>
         <th>İlan Başlığı</th>
         <th>İlan Durumu</th>
         <th><p style="margin-left: 6vh; font-size:larger; margin-top: 2vh;">İşlem</p></th>
@@ -23,12 +25,22 @@
           <div [id]="'quill-container-' + i" class="quill-container"></div>
         </td>
         <td>{{ applyAdvert.address }}</td>
+        <td><a style="font-size: xx-large; text-decoration: none;" href="{{applyAdvert.cvUrl}}">📝</a></td>
         <td>{{ applyAdvert.advertTitle }}</td>
-        <td><span class="pending-label">ilan beklemede</span></td>
+        <td>
+          <span [ngClass]="{
+            'pending-label' : applyAdvert.status==='İlan Beklemede',
+            'rejected-label': applyAdvert.status === 'Başvuru Reddedildi',
+            'approved-label': applyAdvert.status === 'Başvuru Onaylandı'
+          }">
+            {{ applyAdvert.status }}
+          </span>
+        </td>
         <td>
           <div class="button-group">
-            <button class="btn btn-approve">Onayla</button>
-            <button class="btn btn-reject">Reddet</button>
+            <button class="btn btn-approve" (click)="success(applyAdvert.advertNo)">Onayla</button>
+            <button class="btn btn-reject" (click)="reject(applyAdvert.advertNo)">Reddet</button>
+            <button class="btn btn-reject" (click)="delete(applyAdvert.advertNo, $event)">Sil</button>
           </div>
         </td>
       </tr>

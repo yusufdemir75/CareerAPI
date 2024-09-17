@@ -10,6 +10,8 @@ namespace CareerAPI.Application.DTOs
     public class AdvertDto
     {
         public Guid Id { get; set; }
+
+        public int advertNo { get; set; }
         public string CompanyName { get; set; }
         public string Title { get; set; }
         public string Address { get; set; }

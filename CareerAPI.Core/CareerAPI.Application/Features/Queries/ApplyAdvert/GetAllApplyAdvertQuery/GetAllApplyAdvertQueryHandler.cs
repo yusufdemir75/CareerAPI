@@ -33,8 +33,12 @@ namespace CareerAPI.Application.Features.Queries.ApplyAdvert.GetAllApplyAdvertQu
             {
                 ApplyAdvert = applyAdverts.Select(a => new ApplyAdvertDto
                 {
-                    id = a.Id,
-                    userName= a.userName,
+                    Id = a.Id,
+                    cvUrl = a.cvUrl,
+                    isApproved=a.isApproved,
+                    status=a.status,
+                    advertNo= a.AdvertNo,
+                    userName = a.userName,
                     nameSurname= a.nameSurname,
                     position= a.position,
                     address= a.address,

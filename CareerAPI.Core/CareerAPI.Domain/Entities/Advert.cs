@@ -13,6 +13,8 @@ namespace CareerAPI.Domain.Entities
     public class Advert:BaseEntity
     {
         //Title
+
+        public int advertNo { get; set; }
         public string title { get; set; }
 
         public string companyName { get; set; }

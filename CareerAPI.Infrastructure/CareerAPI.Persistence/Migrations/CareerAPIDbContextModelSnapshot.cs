@@ -83,6 +83,12 @@ namespace CareerAPI.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("advertNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("advertNo"));
+
                     b.Property<string>("companyName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -106,6 +112,9 @@ namespace CareerAPI.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("advertNo")
+                        .IsUnique();
 
                     b.ToTable("Advert");
                 });
@@ -149,6 +158,12 @@ namespace CareerAPI.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("AdvertNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AdvertNo"));
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -157,6 +172,10 @@ namespace CareerAPI.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("advertTitle")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("cvUrl")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -184,6 +203,9 @@ namespace CareerAPI.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdvertNo")
+                        .IsUnique();
 
                     b.ToTable("ApplyAdverts");
                 });
@@ -292,6 +314,9 @@ namespace CareerAPI.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("age")
+                        .HasColumnType("text");
+
+                    b.Property<string>("cvUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("githubLink")

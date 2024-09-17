@@ -3,7 +3,7 @@ import { AdvertsService } from '../../../services/models/adverts.service';
 import { advert } from '../../../contracts/adverts/advert';
 import Quill from 'quill';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../../services/ui/custom-toastr.service';
-
+declare var $:any;
 @Component({
   selector: 'app-application',
   templateUrl: './application.component.html',
@@ -16,8 +16,9 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
   constructor(private advertsService: AdvertsService, private toastrService:CustomToastrService) { }
 
   ngOnInit(): void {
-    this.updateAllAdverts();
+    
     this.fetchAdverts();
+    this.updateAllAdverts();
   }
 
   updateAllAdverts(): void {
@@ -34,10 +35,12 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
   }
 
   fetchAdverts(): void {
+    debugger;
     this.advertsService.getAdverts().subscribe(
+      
       (data: advert[]) => {
         this.jobs = data;
-        this.quillRendered = Array(this.jobs.length).fill(false); // Quill render durumunu izlemek için array başlat
+        this.quillRendered = Array(this.jobs.length).fill(false); 
         console.log('Jobs data on ngOnInit:', this.jobs);
       },
       (error) => {
@@ -75,5 +78,18 @@ export class ApplicationComponent implements OnInit, AfterViewChecked {
     } catch (e) {
       console.error('Error parsing requirements JSON', e);
     }
+  }
+
+  deleteAdvert(advertNo:number,event){
+    this.advertsService.delete_Advert(advertNo,
+      () => {
+        this.toastrService.message("Silme işlemi Yapıldı","İlan İşlemi",ToastrMessageType.Success,ToastrPosition.TopRight)
+      },
+      (errorMessage: string) => {
+        this.toastrService.message("Silme işlemi Yapılamadı","İlan İşlemi",ToastrMessageType.Error,ToastrPosition.TopRight)
+      });
+    const btn: HTMLButtonElement=event.srcElement;
+    $(btn.parentElement.parentElement.parentElement).fadeOut(2000);
+    
   }
 }

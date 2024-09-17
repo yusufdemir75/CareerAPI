@@ -53,6 +53,40 @@ namespace CareerAPI.Persistence.Repositories
             return Remove(model);
         }
 
+        public async Task<bool> RemoveAdvertNoAsync(int advertNo)
+        {
+            if (typeof(T) == typeof(Domain.Entities.ApplyAdvert))
+            {
+                
+                var model = await _context.ApplyAdverts.FirstOrDefaultAsync(data => data.AdvertNo == advertNo);
+
+                if (model != null)
+                {
+                   
+                    return Remove(model as T); 
+                }
+            }
+
+            return false; 
+        }
+
+        public async Task<bool> RemoveAdvertNoAdvertAsync(int advertNo)
+        {
+            if (typeof(T) == typeof(Domain.Entities.Advert))
+            {
+
+                var model = await _context.ApplyAdverts.FirstOrDefaultAsync(data => data.AdvertNo == advertNo);
+
+                if (model != null)
+                {
+
+                    return Remove(model as T);
+                }
+            }
+
+            return false;
+        }
+
         public bool Update(T model)
         {  
             Attach(model);

@@ -28,7 +28,7 @@ export class advertsComponent  implements OnInit, AfterViewChecked  {
     this.advertsService.updateAllAdverts(
       () => {
         console.log('All adverts updated successfully');
-        this.fetchAdverts(); // Güncellemeden sonra verileri tekrar al
+        this.fetchAdverts();
       },
       (errorMessage) => {
         console.error('Error updating adverts:', errorMessage);
@@ -82,7 +82,7 @@ export class advertsComponent  implements OnInit, AfterViewChecked  {
   async applyForJob(event: Event, jobTitle: string) {
     event.preventDefault();
     const create_applyAdvert: applyAdvert = new applyAdvert();
-    const username = localStorage.getItem('username'); // LocalStorage'dan username alınır
+    const username = localStorage.getItem('username'); 
     const userDetails = await this.userService.getUser(username);
   
     if (username) {

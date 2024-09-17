@@ -20,20 +20,28 @@ export class CreateProfileComponent {
     this.userName = localStorage.getItem('username');
   }
   selectedFile: File | null = null;
-  fileUrl:string | null=null
+  fileUrl:string | null=null;
+  fileCvUrl:string| null=null;
 
 
   // Handle file input change
-  OnFileChange(event: any) {
+  OnFileImageChange(event: any) {
     const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
-      this.uploadFile();  // Call upload function
+      this.uploadImageFile();  // Call upload function
+    }
+  }
+  OnFileCvChange(event:any){
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      this.uploadCvFile();  // Call upload function
     }
   }
 
   // Upload the file to Firebase Storage
-  uploadFile() {
+  uploadImageFile() {
     if (this.selectedFile) {
       const filePath = `profile_pics/${Date.now()}_${this.selectedFile.name}`;
       const fileRef = this.storage.ref(filePath);
@@ -42,7 +50,7 @@ export class CreateProfileComponent {
         finalize(() => {
           fileRef.getDownloadURL().subscribe(url => {
             this.fileUrl= url;
-            console.log('File URL:', this.fileUrl); // Log file URL after successful upload
+            console.log('İmage URL:', this.fileUrl); 
           });
         })
       ).subscribe();
@@ -50,13 +58,30 @@ export class CreateProfileComponent {
       console.error('No file selected!');
     }
   }
-
+  uploadCvFile() {
+    if (this.selectedFile) {
+      const filePath = `user_cv/${Date.now()}_${this.selectedFile.name}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, this.selectedFile);
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(url => {
+            this.fileCvUrl= url;
+            console.log('Cv URL:', this.fileUrl); // Log file URL after successful upload
+          });
+        })
+      ).subscribe();
+    } else {
+      console.error('No file selected!');
+    }
+  }
   
-  updateUser(event: Event,position:HTMLInputElement,PhoneNumber:HTMLInputElement ,address:HTMLInputElement,age:HTMLInputElement,skills:QuillEditorComponent, instaLink:HTMLInputElement,githubLink:HTMLInputElement,twitterLink:HTMLInputElement) {
+  updateUser(event: Event,nameSurname:HTMLInputElement, position:HTMLInputElement,PhoneNumber:HTMLInputElement ,address:HTMLInputElement,age:HTMLInputElement,skills:QuillEditorComponent, instaLink:HTMLInputElement,githubLink:HTMLInputElement,twitterLink:HTMLInputElement) {
     event.preventDefault(); 
     const delta: Delta = skills.quillEditor.getContents();
     debugger;
     const updateRequest: updateUser = {
+      nameSurname:nameSurname.value,
       position: position.value,
       PhoneNumber:PhoneNumber.value,
       address: address.value,
@@ -66,7 +91,8 @@ export class CreateProfileComponent {
       githubLink: githubLink.value,
       twitterLink: twitterLink.value,
       userName:this.userName,
-      imageUrl:this.fileUrl
+      imageUrl:this.fileUrl,
+      cvUrl:this.fileCvUrl
     };
     console.log('Update Request:', updateRequest);
     debugger;

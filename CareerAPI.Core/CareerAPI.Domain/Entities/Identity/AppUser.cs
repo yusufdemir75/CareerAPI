@@ -10,7 +10,9 @@ namespace CareerAPI.Domain.Entities.Identity
 {
     public class AppUser : IdentityUser<string>
     {
-        public string? imageUrl { get; set; } 
+        public string? imageUrl { get; set; }
+
+        public string? cvUrl { get; set; }
         public string? nameSurname { get; set; } 
         public string Role { get; set; } 
 

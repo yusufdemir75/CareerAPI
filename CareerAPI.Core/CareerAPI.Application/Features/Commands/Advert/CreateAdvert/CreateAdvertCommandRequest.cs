@@ -10,6 +10,7 @@ namespace CareerAPI.Application.Features.Commands.Advert.CreateAdvert
 {
     public class CreateAdvertCommandRequest:IRequest<CreateAdvertCommandResponse>
     {
+        
         public string title { get; set; }
 
         public string companyName { get; set; }

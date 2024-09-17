@@ -10,9 +10,12 @@
           <p class="card-text"><strong>Address:</strong> {{ job.address }}</p>
           <p class="card-text"><strong>Type of Work:</strong> {{ job.typeOfWork }}</p>
           <p class="card-text"><strong>Requirements:</strong></p>
-          <div [id]="'quill-container-' + i" class="quill-container"></div> <!-- Quill container -->
+          <div [id]="'quill-container-' + i" class="quill-container"></div> 
 
-          <!-- Active/Inactive Label -->
+          <div class="btn-container">
+            <button class="btn btn-reject" (click)="deleteAdvert(job.advertNo,$event)">Sil</button>
+          </div>
+
           <span 
             [ngClass]="{
               'active-label': job.isActive,

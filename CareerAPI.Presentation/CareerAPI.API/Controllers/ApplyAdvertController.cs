@@ -1,7 +1,10 @@
 ﻿using CareerAPI.Application.Features.Commands.Advert.CreateAdvert;
 using CareerAPI.Application.Features.Commands.ApplyAdvert.CreateApplyAdvert;
+using CareerAPI.Application.Features.Commands.ApplyAdvert.DeleteAdvert;
+using CareerAPI.Application.Features.Commands.ApplyAdvert.UpdateApplyAdvert;
 using CareerAPI.Application.Features.Queries.Advert.GetAdvert;
 using CareerAPI.Application.Features.Queries.ApplyAdvert.GetAllApplyAdvertQuery;
+using CareerAPI.Application.Features.Queries.ApplyAdvert.GetPersonelApplyAdvert;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,5 +38,60 @@ namespace CareerAPI.API.Controllers
             var result = await _mediator.Send(new GetAllApplyAdvertQueryRequest());
             return Ok(result.ApplyAdvert);
         }
+
+        [HttpPut("{advertNo}")]
+        public async Task<IActionResult> UpdateApplyAdvert(int advertNo, [FromBody] UpdateApplyAdvertCommandRequest request)
+        {
+            // advertNo'yu request modeline atıyoruz
+            request.advertNo = advertNo;
+
+            var response = await _mediator.Send(request);
+
+            if (response.Success)
+            {
+                return Ok(response.Message);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
+
+        [HttpGet("getpersonelapplies/{userName}")]
+        public async Task<IActionResult> GetPersonelApplies(string userName)
+        {
+            var query = new GetPersonelApplyAdvertQueryRequest
+            {
+                UserName = userName
+            };
+
+            try
+            {
+                var result = await _mediator.Send(query);
+                return Ok(result.PersonelApplyAdvertDto);  // Yalnızca listeyi döndür
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+        }
+
+        [HttpDelete("{advertNo}")]
+        public async Task<IActionResult> DeleteAdvert(int advertNo)
+        {
+            // Command nesnesini oluştururken advertNo'yu constructor'a geçiriyoruz
+            var command = new DeleteApplyAdvertCommandRequest(advertNo);
+
+            var result = await _mediator.Send(command);
+
+            if (result.Success)
+            {
+                return Ok(new { message = result.Message });
+            }
+
+            return NotFound(new { message = result.Message });
+        }
+
     }
 }
+

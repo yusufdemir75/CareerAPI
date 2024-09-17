@@ -35,6 +35,15 @@ namespace CareerAPI.Application.Features.Commands.AppUser.UpdateUser
                 user.imageUrl = request.imageUrl;
             }
 
+            if (!string.IsNullOrEmpty(request.cvUrl))
+            {
+                user.cvUrl = request.cvUrl;
+            }
+            if (!string.IsNullOrEmpty(request.nameSurname))
+            {
+                user.nameSurname = request.nameSurname;
+            }
+
             if (!string.IsNullOrEmpty(request.age))
             {
                 user.age = request.age;

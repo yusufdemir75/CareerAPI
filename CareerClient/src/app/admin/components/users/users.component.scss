@@ -20,6 +20,21 @@ h1 {
   margin-bottom: 20px;
   color: #fdfafa;
 }
+.export-button {
+  float: right;
+  margin-top: -50px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.export-button:hover {
+  background-color: #45a049;
+}
 
 .job-applications-table {
   width: 100%;
@@ -57,6 +72,24 @@ a:hover {
 .pending-label {
   background-color: #636963;
   color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.rejected-label {
+  background-color: #636963;
+  color: rgb(143, 24, 24);
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.approved-label {
+  background-color: #636963;
+  color: #72f639;
   padding: 5px 10px;
   border-radius: 12px;
   font-size: 0.875rem;

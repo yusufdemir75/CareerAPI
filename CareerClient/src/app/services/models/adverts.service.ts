@@ -107,6 +107,35 @@ export class AdvertsService {
       },
     });
   }
+  async delete_Advert(advertNo: number, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<void> {
+    this.httpClientService.delete({
+      controller: 'Advert' 
+    }, `${encodeURIComponent(advertNo)}`).subscribe({
+      next: result => {
+        if (successCallBack) {
+          successCallBack(); 
+        }
+      },
+      error: (errorResponse: HttpErrorResponse) => {
+        let message = "";
   
+        console.log("Error Response:", errorResponse);
+  
+        if (errorResponse.error && errorResponse.error.text) {
+          message = errorResponse.error.text;
+        } else if (typeof errorResponse.error === 'string') {
+          message = errorResponse.error;
+        } else if (typeof errorResponse.error === 'object') {
+          message = JSON.stringify(errorResponse.error);
+        } else {
+          message = "Bilinmeyen bir hata oluştu.";
+        }
+  
+        if (errorCallBack) {
+          errorCallBack(message); 
+        }
+      },
+    });
+  }
 
 }

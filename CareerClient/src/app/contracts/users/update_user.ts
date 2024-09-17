@@ -9,5 +9,6 @@ export class updateUser{
     githubLink: string;
     twitterLink: string;
     userName:string;
-    
+    cvUrl:string;
+    nameSurname:string;
 }

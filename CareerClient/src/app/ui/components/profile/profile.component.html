@@ -6,34 +6,36 @@
 
     <div class="profile-card__cnt js-profile-cnt">
       <div class="profile-card__name">{{ user?.nameSurname }}</div>
-      <div class="profile-card__position">{{user?.position}}</div>
-      <div class="profile-card-loc">
-        <span class="profile-card-loc__icon">
-          <svg class="icon"><use xlink:href="#icon-location"></use></svg>
-        </span>
-        <span class="profile-card-loc__txt profile-card-address">{{ user?.address }}</span>
-      </div>
+      
 
       <!-- Profil detayları kartı -->
       <div class="profile-details">
         <div class="profile-card__content">
           
           <div class="profile-card__info">
+            
             <div class="profile-card__info-item">
-              <div class="profile-card__info-title">Skills</div>
+              <div class="profile-card__info-title">Yaş</div>
+              <div class="profile-card__info-txt">{{ user?.age}}</div>
+            </div>
+            <div class="profile-card__info-item">
+              <div class="profile-card__info-title">Adres</div>
+              <div class="profile-card__info-txt">{{ user?.address }}</div>
+            </div>
+            <div class="profile-card__info-item">
+              <div class="profile-card__info-title">İsim Soyisim</div>
+              <div class="profile-card__info-txt">{{ user?.nameSurname }}</div>
+            </div>
+            <div class="profile-card__info-item">
+              <div class="profile-card__info-title">Pozisyon</div>
+              <div class="profile-card__info-txt">{{ user?.position }}</div>
+            </div>
+            <div class="profile-card__info-item">
+              <div class="profile-card__info-title">Yetenekler</div>
               <div class="profile-card__info-txt">
                 <div id="quill-container"></div>
               </div>
             </div>
-            <div class="profile-card__info-item">
-              <div class="profile-card__info-title">Age</div>
-              <div class="profile-card__info-txt">{{ user?.age}}</div>
-            </div>
-            <div class="profile-card__info-item">
-              <div class="profile-card__info-title">Location</div>
-              <div class="profile-card__info-txt">{{ user?.address }}</div>
-            </div>
-          
           </div>
         </div>
       </div>

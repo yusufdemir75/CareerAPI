@@ -31,7 +31,7 @@ namespace CareerAPI.Application.Features.Queries.Advert.GetAdvert
             {
                 Adverts = adverts.Select(a => new AdvertDto
                 {
-                    Id = a.Id,
+                    advertNo=a.advertNo,
                     CompanyName = a.companyName,
                     Title = a.title,
                     Address = a.address,

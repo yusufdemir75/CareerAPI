@@ -65,6 +65,25 @@ namespace CareerAPI.Persistence.contexts
             modelBuilder.Entity<AppUser>()
                 .Property(u => u.skills)
                 .IsRequired(false);
+            modelBuilder.Entity<AppUser>()
+                .Property(u => u.cvUrl)
+                .IsRequired(false);
+
+            modelBuilder.Entity<ApplyAdvert>()
+                .Property(a => a.AdvertNo)
+                .ValueGeneratedOnAdd(); 
+
+            modelBuilder.Entity<ApplyAdvert>()
+                .HasIndex(a => a.AdvertNo)
+                .IsUnique();
+
+            modelBuilder.Entity<Advert>()
+                .Property(a => a.advertNo)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Advert>()
+                .HasIndex(a => a.advertNo)
+                .IsUnique();
         }
 
     }

@@ -10,7 +10,6 @@ namespace CareerAPI.Application.Features.Commands.ApplyAdvert.CreateApplyAdvert
 {
     public class CreateApplyAdvertCommandRequest:IRequest<CreateApplyAdvertCommandResponse>
     {
-
         public string userName { get; set; }
         public string advertTitle { get; set; }
 

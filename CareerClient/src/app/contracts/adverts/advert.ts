@@ -1,7 +1,7 @@
 import { Delta } from "quill/core";
 
 export class advert{
-    Id:string;
+    advertNo:number;
     title: string;
     position:string;
     address:string;
@@ -10,4 +10,5 @@ export class advert{
     isActive:string;
     requirements:string;
     EndDate:Date;
+    
 }

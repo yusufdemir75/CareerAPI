@@ -1,1 +1,39 @@
-<p>home works!</p>
+<div class="container">
+    <h1>Başvurulan İlanlar</h1>
+    <table class="job-applications-table">
+      <thead>
+        <tr>
+          <th>Kullanıcı İsmi</th>
+          <th>İsim Soyisim</th>
+          <th>Pozisyon</th>
+          <th>Yetenekler</th>
+          <th>Lokasyon</th>
+          <th>İlan Başlığı</th>
+          <th>İlan Durumu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personelApplyAdvert of personelApplyAdverts; let i = index">
+          <td>{{ personelApplyAdvert.userName }}</td>
+          <td>{{ personelApplyAdvert.nameSurname }}</td>
+          <td>{{ personelApplyAdvert.position }}</td>
+          <td>
+            <!-- Quill container for skills -->
+            <div [id]="'quill-container-' + i" class="quill-container"></div>
+          </td>
+          <td>{{ personelApplyAdvert.address }}</td>
+          <td>{{ personelApplyAdvert.advertTitle }}</td>
+          <td>
+            <span [ngClass]="{
+              'rejected-label': personelApplyAdvert.status === 'Başvuru Reddedildi',
+              'approved-label': personelApplyAdvert.status === 'Başvuru Onaylandı'
+            }">
+              {{ personelApplyAdvert.status }}
+            </span>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

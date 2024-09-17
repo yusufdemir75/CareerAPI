@@ -1,5 +1,7 @@
 ﻿using CareerAPI.Application.Features.Commands.Advert.CreateAdvert;
+using CareerAPI.Application.Features.Commands.Advert.DeleteAdvert;
 using CareerAPI.Application.Features.Commands.Advert.UpdateAdvert;
+using CareerAPI.Application.Features.Commands.ApplyAdvert.DeleteAdvert;
 using CareerAPI.Application.Features.Queries.Advert.GetActiveAdvert;
 using CareerAPI.Application.Features.Queries.Advert.GetAdvert;
 using CareerAPI.Application.Repositories;
@@ -17,14 +19,10 @@ namespace CareerAPI.API.Controllers
     [ApiController]
     public class AdvertController : ControllerBase
     {
-        private readonly IAdvertWriteRepository _advertWriteRepository;
-        private readonly IAdvertReadRepository _advertReadRepository;
         private readonly IMediator _mediator;
 
-        public AdvertController(IAdvertWriteRepository advertWriteRepository, IAdvertReadRepository advertReadRepository, IMediator mediator)
+        public AdvertController( IMediator mediator)
         {
-            _advertWriteRepository = advertWriteRepository;
-            _advertReadRepository = advertReadRepository;
             _mediator = mediator;
         }
 
@@ -56,10 +54,8 @@ namespace CareerAPI.API.Controllers
         [HttpPut("update-all")]
         public async Task<IActionResult> UpdateAllAdverts()
         {
-            // UpdateAdvertCommandRequest nesnesini oluşturun (Gerekirse parametreleri ekleyin)
             var request = new UpdateAdvertCommandRequest();
 
-            // Komutu MediatR aracılığıyla gönderin
             var response = await _mediator.Send(request);
 
             if (response.Success)
@@ -72,8 +68,21 @@ namespace CareerAPI.API.Controllers
             }
         }
 
+        [HttpDelete("{advertNo}")]
+        public async Task<IActionResult> DeleteAdvert(int advertNo)
+        {
+            // Command nesnesini oluştururken advertNo'yu constructor'a geçiriyoruz
+            var command = new DeleteAdvertCommandRequest(advertNo);
 
+            var result = await _mediator.Send(command);
 
+            if (result.Success)
+            {
+                return Ok(new { message = result.Message });
+            }
+
+            return NotFound(new { message = result.Message });
+        }
     }
 
 

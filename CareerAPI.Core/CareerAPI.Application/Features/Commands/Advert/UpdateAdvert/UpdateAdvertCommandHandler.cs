@@ -20,7 +20,6 @@ namespace CareerAPI.Application.Features.Commands.Advert.UpdateAdvert
         }
         public async Task<UpdateAdvertCommandResponse> Handle(UpdateAdvertCommandRequest request, CancellationToken cancellationToken)
         {
-            // Veritabanındaki tüm ilanları getir
             var adverts = await _advertReadRepository.GetAllAsync();
 
             if (adverts == null || !adverts.Any())
@@ -32,7 +31,6 @@ namespace CareerAPI.Application.Features.Commands.Advert.UpdateAdvert
                 };
             }
 
-            // Tüm ilanları dolaş ve gerekiyorsa IsActive durumunu güncelle
             foreach (var advert in adverts)
             {
                 if (advert.EndDate < DateTime.Now)

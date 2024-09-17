@@ -17,6 +17,9 @@ namespace CareerAPI.Application.Repositories
 
         bool Remove(T model);
 
+        Task<bool> RemoveAdvertNoAdvertAsync(int advertNo);
+        Task<bool> RemoveAdvertNoAsync(int advertNo);
+
         bool RemoveRange(List<T> datas);
 
         Task<bool> RemoveAsync(string id);

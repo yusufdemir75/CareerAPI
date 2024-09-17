@@ -10,7 +10,8 @@ namespace CareerAPI.Domain.Entities
 {
     public class ApplyAdvert:BaseEntity
     {
-
+        public int AdvertNo { get; set; }
+        public string cvUrl { get; set; }
         public string userName { get; set; }
         public string advertTitle { get; set; }
         public string nameSurname { get; set; }

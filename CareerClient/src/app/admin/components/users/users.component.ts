@@ -1,10 +1,12 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
-import { AdvertsService } from '../../../services/models/adverts.service';
-import { advert } from '../../../contracts/adverts/advert';
 import Quill from 'quill';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../../services/ui/custom-toastr.service';
 import { ApplyAdvertService } from '../../../services/models/apply-advert.service';
 import { applyAdvert } from '../../../contracts/adverts/applyAdvert';
+import { approvedAdvert } from '../../../contracts/adverts/approvedAdvert';
+import * as XLSX from 'xlsx';
+
+declare var $ :any;
 
 @Component({
   selector: 'app-users',
@@ -64,4 +66,83 @@ export class UsersComponent implements OnInit, AfterViewChecked {
       console.error('Error parsing requirements JSON', e);
     }
   }
+  success(advertNo: number): void {
+
+    const updatedAdvert: approvedAdvert = {
+      advertNo: advertNo,  // idString kullanarak `string` türünde Id'yi atıyoruz
+      isApproved: true,
+      status: "Başvuru Onaylandı"
+    };
+
+    this.applyAdvertService.update_applyAdvert(advertNo, updatedAdvert, 
+      () => {
+        this.toastrService.message("Başvuru başarıyla onaylandı.","ONAY",ToastrMessageType.Success,ToastrPosition.TopRight);
+        this.fetchAdverts(); 
+      },
+      (errorMessage) => {
+        this.toastrService.message("Başvuru Durumu ", errorMessage,ToastrMessageType.Info,ToastrPosition.TopRight);
+      }
+    );
+  }
+
+  reject(advertNo: number): void {
+
+    const updatedAdvert: approvedAdvert = {
+      advertNo: advertNo,  // idString kullanarak `string` türünde Id'yi atıyoruz
+      isApproved: false,
+      status: "Başvuru Reddedildi"
+    };
+
+    this.applyAdvertService.update_applyAdvert(advertNo, updatedAdvert, 
+      () => {
+        this.toastrService.message("Başvuru reddedildi.","RED",ToastrMessageType.Success,ToastrPosition.TopRight);
+        this.fetchAdverts();
+      },
+      (errorMessage) => {
+        this.toastrService.message("Başvuru Durumu.",errorMessage,ToastrMessageType.Info,ToastrPosition.TopRight);
+      }
+    );
+  }
+  
+  delete(advertNo,event){
+    this.applyAdvertService.delete_applyAdvert(advertNo,
+      () => {
+        console.log("İlan başarıyla silindi.");
+        // Başarılı işlem sonrası yapılacaklar
+      },
+      (errorMessage: string) => {
+        console.error("Hata:", errorMessage);
+        // Hata mesajını kullanıcıya gösterebilirsin
+      });
+    const btn: HTMLButtonElement=event.srcElement;
+    $(btn.parentElement.parentElement.parentElement).fadeOut(2000);
+  }
+
+
+
+
+
+
+
+
+
+
+  exportExcel(): void {
+    const selectedData = this.applyAdverts.map(advert => ({
+      advertNo: advert.advertNo,
+      name: advert.nameSurname,
+      address:advert.address,
+      advertTitle:advert.advertTitle,
+      position:advert.position,
+      cvUrl:advert.cvUrl,
+      status: advert.status,
+    }));
+  
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(selectedData);
+    const workbook: XLSX.WorkBook = { Sheets: { 'Başvurular': worksheet }, SheetNames: ['Başvurular'] };
+    XLSX.writeFile(workbook, 'basvurular.xlsx');
+  }
 }
+
+
+

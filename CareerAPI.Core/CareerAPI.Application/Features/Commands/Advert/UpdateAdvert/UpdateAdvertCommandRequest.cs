@@ -9,6 +9,5 @@ namespace CareerAPI.Application.Features.Commands.Advert.UpdateAdvert
 {
     public class UpdateAdvertCommandRequest : IRequest<UpdateAdvertCommandResponse>
     {
-        public Guid Id { get; set; }
     }
 }
